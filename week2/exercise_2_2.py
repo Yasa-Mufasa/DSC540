@@ -24,7 +24,7 @@ notebook or code editor, no need to export your work.
 # Change case in a string
 
 # This can be done by either capitalizing something, or changing a capital letter to a lower case letter
-
+print("Change case in a sting")
 change_case = "HeLlO"
 print(change_case)
 change_case = change_case.lower()
@@ -44,7 +44,7 @@ print(change_case.upper())
 '''
 
 # Strip space off the end of a string
-
+print("\nStip spcae off the end of a string")
 strip_string = 'Hello, World! '
 print(strip_string.strip(' '))
 
@@ -57,7 +57,7 @@ If the stripped version of the variable is needed, the variable could be redefin
 # Split a string
 
 # I'm going to make a string of random characters and split it by 'a'.
-
+print("\nSplit a string")
 random_string = 'kjodiajndowiand'
 print(random_string.split('a'))
 
@@ -67,7 +67,7 @@ fragments.
 '''
 
 # Add and subtract integers and decimals
-
+print('\nAdd and subtract integers and decimals')
 # This is easy enough.
 print(1 + 2)
 print(4 - 7)
@@ -75,7 +75,7 @@ print(1.4 + 5.2)
 print(6.6 - 2.3)
 
 # Create a list
-
+print('\nCreate a list')
 my_list = ['Mountain Dew', 'Pepsi', 'Coke', 'Dr. Pepper']
 print(my_list)
 
@@ -84,7 +84,7 @@ This creates a list of 4 different sodas. These are the 4 most recent sodas I've
 '''
 
 # Add to the list
-
+print('\nAdd to the list')
 my_list.append('Crush')
 print(my_list)
 
@@ -93,7 +93,7 @@ This adds Crush to the list. It was the next soda I could think of.
 '''
 
 # Subtract from the list
-
+print('\nSubtract from the list')
 my_list.remove("Pepsi")
 print(my_list)
 
@@ -104,7 +104,7 @@ This removes Pepsi from the list. I'm sorry Pepsi fans
 # Remove the last item from the list
 
 # There are a couple of ways to do this. You could use the remove command again, or you could slice the list
-
+print('\nRemove the last item from the list')
 my_list = my_list[0:3]
 print(my_list)
 
@@ -122,7 +122,7 @@ Just remember that lists are mutable, and don't forget the print() statement.
 # Reorder the list
 
 # I'm going to reorder the list by reversing the list
-
+print('\nReorder the list')
 my_list.reverse()
 print(my_list)
 
@@ -131,7 +131,7 @@ This command reverses the list and then prints it.
 '''
 
 # Sort the list
-
+print('\nSort the list')
 my_list.sort()
 print(my_list)
 my_list.sort(reverse = True)
@@ -142,7 +142,7 @@ This snippet of code first sorts the list alphabetically from A to Z, and then s
 '''
 
 # Create a dictionary
-
+print('\nCreate a dictionary')
 my_dict = {'ps4': 14, 'xbox_one': 4, 'switch': 9}
 print(my_dict)
 
@@ -151,7 +151,7 @@ This creates a dictionary record of the number of games for given gaming console
 '''
 
 # Add a key-value to the dictionary
-
+print('\nAdd a key-value to the dictionary')
 my_dict['desktop'] = 24
 print(my_dict['desktop'])
 print(my_dict)
@@ -162,7 +162,7 @@ the full dictionary to prove that the record was added to the dictionary.
 '''
 
 # Set a new value to corresponding key in dictionary
-
+print('\nSet a new value to corresponding key in dictionary')
 my_dict['switch'] = 15
 print(my_dict['switch'])
 print(my_dict)
@@ -174,7 +174,7 @@ Here we can see that the value for the key 'switch' changed to 15.
 # Look a new value by the key in dictionary
 
 # I'm not entirely sure what's being asked here. I'm assuming this is asking me to look at the value by calling the key
-
+print('\nLook a new value by the key in dictionary')
 print(my_dict['ps4'])
 
 '''
