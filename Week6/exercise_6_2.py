@@ -22,8 +22,8 @@ import os
 os.chdir("C:/Users/yasam/OneDrive/Documents/Grad School/DS540 Data Preparation/data-wrangling-master/data/unicef")
 
 # Now I can start importing the data into a dictionary record.
-data_rdr = DictReader(open('mn.csv','r'))
-header_rdr = DictReader(open('mn_headers.csv', 'r'))
+data_rdr = DictReader(open('data/unicef/mn.csv','r'))
+header_rdr = DictReader(open('data/unicef/mn_headers.csv', 'r'))
 
 data_rows = [d for d in data_rdr]
 header_rows = [h for h in header_rdr]
@@ -66,8 +66,8 @@ commenting out to keep the code, but to try the zipping method
 # Looking at creating a dictionary record using the zip method. (page 157-163 Data Wrangling with Python)
 from csv import reader
 
-data_rdr = reader(open('mn.csv', 'r'))
-header_rdr = reader(open('mn_headers.csv', 'r'))
+data_rdr = reader(open('data/unicef/mn.csv', 'r'))
+header_rdr = reader(open('data/unicef/mn_headers.csv', 'r'))
 
 data_rows = [d for d in data_rdr]
 header_rows = [h for h in header_rdr]
@@ -109,8 +109,8 @@ for header in data_rows[0]:
 '''
 from csv import reader
 
-data_rdr = reader(open('mn.csv', 'r'))
-header_rdr = reader(open('mn_headers_updated.csv', 'r'))
+data_rdr = reader(open('data/unicef/mn.csv', 'r'))
+header_rdr = reader(open('data/unicef/mn_headers_updated.csv', 'r'))
 
 data_rows = [d for d in data_rdr]
 header_rows = [h for h in header_rdr if h[0] in data_rows[0]]
@@ -160,8 +160,8 @@ header_match = zip(data_headers, all_short_headers)
 # Trying again, but taking the order of the headers into consideration
 from csv import reader
 
-data_rdr = reader(open('mn.csv', 'r'))
-header_rdr = reader(open('mn_headers_updated.csv', 'r'))
+data_rdr = reader(open('data/unicef/mn.csv', 'r'))
+header_rdr = reader(open('data/unicef/mn_headers_updated.csv', 'r'))
 
 data_rows = [d for d in data_rdr]
 header_rows = [h for h in header_rdr if h[0] in data_rows[0]]
