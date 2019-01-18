@@ -172,11 +172,11 @@ skip_index = []
 final_header_rows = []
 
 for header in data_rows[0]:
-    if header not in all_short_headers:
+    if header not in all_short_headers:    # Finding the indices where the headers don't match
         index = data_rows[0].index(header)
-        skip_index.append(index)
+        skip_index.append(index)           # This builds the list of indices to skip rather than just removing them from one list and not the other
     else:
-        for head in header_rows:
+        for head in header_rows:            # Finding the indices that we want to keep
             if head[0] == header:
                 final_header_rows.append(head)
                 break
@@ -193,7 +193,7 @@ for row in data_rows[1:]:
 zipped_data = []
 
 for drow in new_data:
-    zipped_data.append(zip(final_header_rows, drow))
+    zipped_data.append(zip(final_header_rows, drow))    # zipping together the indices we want to keep while skipping over the ones we don't want.
 
 # pprint.pprint(zipped_data[0])       # alright, this works! and it's pretty fast, so that's awesome.
 # commenting out so I don't print the dictionary record each time I run the code.
@@ -207,3 +207,30 @@ use the format method to make output human readable.
 Well, the nice this is that it's clarified that I'm to use the mn.csv files here. That's a relief.
 '''
 
+# starting off by looking at how the data in the dictionary file is formated
+'''
+for x in zipped_data[0]:
+    print('Question: {}\nAnswer: {}'.format(
+        x[0], x[1]
+    ))
+'''
+
+# This is readable, but in a weird format. Let's clean it up a bit.
+for x in zipped_data[0]:
+    print('Question: {[1]}\nAnswer: {}'.format(
+        x[0], x[1]
+    ))
+'''
+Much better!! And this makes sense. The second entry of the Question is the human readable portion, so only calling that section
+helps to make the printed section easier to read for humans. The text book does this easier than I was thinking. I was thinking
+of creating a list of the questions and a list of the answers, zipping them together to generate the printed output.
+'''
+
+
+'''
+Data Formatting (page 167 - 169 Data Wrangling with Python)
+
+Format the dates to determine when the interview started and ended.
+
+This is going to use the datetime module.
+'''
