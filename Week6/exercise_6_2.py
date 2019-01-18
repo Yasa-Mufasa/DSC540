@@ -216,10 +216,15 @@ for x in zipped_data[0]:
 '''
 
 # This is readable, but in a weird format. Let's clean it up a bit.
+
 for x in zipped_data[0]:
     print('Question: {[1]}\nAnswer: {}'.format(
         x[0], x[1]
     ))
+
+
+
+
 '''
 Much better!! And this makes sense. The second entry of the Question is the human readable portion, so only calling that section
 helps to make the printed section easier to read for humans. The text book does this easier than I was thinking. I was thinking
@@ -232,5 +237,57 @@ Data Formatting (page 167 - 169 Data Wrangling with Python)
 
 Format the dates to determine when the interview started and ended.
 
-This is going to use the datetime module.
+Reading our textbook, it's identified that we're interested in rows 7 - 16.
+'''
+
+from datetime import datetime
+
+start_string = '{}/{}/{} {}:{}'.format(
+    zipped_data[0][8][1], zipped_data[0][7][1], zipped_data[0][9][1],
+    zipped_data[0][13][1], zipped_data[0][14][1]
+)
+
+# print(start_string)     # prints in American date format of month/date/year
+
+start_time = datetime.strptime(start_string, '%m/%d/%Y %H:%M')
+
+# print(start_time)       # prints in year-month-date format
+
+# We have our start_time, but how about an end_time?
+
+end_time = datetime(
+    int(zipped_data[0][9][1]), int(zipped_data[0][8][1]), int(zipped_data[0][7][1]),
+    int(zipped_data[0][15][1]), int(zipped_data[0][16][1])
+)
+
+# print(end_time)      # printed i year-month-date format
+
+# we now have a start_time and end_time, so we should be able to find out what the duration of the interview was
+
+duration = end_time - start_time
+print('Duration of interview:',duration)
+print('Duration of interview in days:',duration.days)
+print('Duration of interview in seconds:',duration.total_seconds())
+minutes = duration.total_seconds() / 60.0
+print('Duration of interview in minutes:',minutes)
+
+
+print(end_time.strftime('%m/%d/%Y %H:%M:$S'))
+print(start_time.ctime())   # huh, this puts the day of the week in the printed statement. That's pretty cool.
+print(start_time.strftime('%Y-%m-%dT%H:%M:%S'))
+
+
+
+
+'''
+Documentation (page 208 - 212 Data Wrangling with Python)
+
+Practice adding documentation to your code following best practices and guidance from your book. You can use previous code
+from teh above examples, or another code example from class.
+'''
+
+'''
+Well, I've been documenting the code as I've worked along with the textbook. True, the code is not as professional as it
+could be but it's easy enough to follow along with. But I do think I will make another file following the example from
+the textbook for this section, mostly for additional practice in writing code and formatting the project folders.
 '''
