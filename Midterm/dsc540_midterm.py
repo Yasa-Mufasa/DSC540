@@ -242,9 +242,76 @@ looks ok.
 
 
 '''
-Part 4: Find Duplicates (Data Wrangling with Python pg 175 - 178)¶
+Part 4: Find Duplicates (Data Wrangling with Python pg 175 - 178)
 
 With the data coming from Kaggle, I don't think there will be any duplicates, but it will still be good to check. One
 way I can check is to check the incident_id's to see if any of them are duplicates. As a matter of interest, I can also
 check to see how many offense_id's are duplicates as well.
 '''
+
+import numpy as np
+test = [x['incident_id'] for x in crime]
+uniques = np.unique(test)
+#print('Length of full set:', len(test))
+#print("Length of unique id's:",len(uniques))
+x = len(test) - len(uniques)
+#print('Number of duplicates:', x)
+#TODO: Remove comments
+
+'''
+This surprises me. I wasn't expecting any duplicates. Thinking about this, though, it could be that a single incident has
+multiple crimes associated with the same incident_id. Still, let's identify the incident_id's that have duplicate
+entries.
+'''
+
+import pandas as pd
+dups = pd.Series(test)[pd.Series(test).duplicated()].values
+#print(len('The Number of duplicates: ',dups))
+#TODO: Remove comment
+'''
+Alright, after many tries, much waiting, and searching for more efficient ways to find duplicates, I finally have a list
+of all of the duplicate incident_id's. Let's take a look at the first 10 duplicates.
+'''
+
+#print('The first ten duplicates: ',dups[0:10])
+#TODO: Remove comment
+
+'''
+Alright, we found which incident_ids are duplicates. It's a long list, so I don't want to print the entire thing out.
+This answers Part 4, but I also want to look at the number of duplicates in regards to offense_code. I know there will
+be lots of duplicates, but I'm curious what will show up.
+'''
+
+offense_codes = [x['offense_code'] for x in crime]
+off_dups = pd.Series(offense_codes)[pd.Series(offense_codes).duplicated()].values
+#print("Length of full set:", len(test))
+#print("Length of duplicates:", len(off_dups))
+x = len(test) - len(off_dups)
+#print("Number of unique offense codes:", x)
+#TODO: Remove comments
+
+
+'''
+Part 5: Conduct Fuzzy Matching (Data Wrangling with Python pg 179 - 188)
+
+(if you don't have an obvious example to do this with in your data, create categories and use Fuzzy Matching to lump
+data together)
+
+For my dataset, I'm curious to see if I can find any matches within the incident_address or neighborhood_id using Fuzzy
+Matching.
+
+For this section, I'm not able to compete it using Jupyter Notebook as it's not recognizing the needed packages. So I'll
+be completing it using PyCharm.
+'''
+
+from fuzzywuzzy import fuzz
+my_records = [{'favorite_book': 'Grapes of Wrath',
+               'favorite_movie': 'Free Willie',
+               'favorite_show': 'Two Broke Girls',
+               },
+             {'favorite_book': 'The Grapes of Wrath',
+              'favorite_movie': 'Free Willy',
+              'favorite_show': '2 Broke Girls',
+             }]
+print(fuzz.ratio(my_records[0].get('favorite_book'),
+                my_records[1].get('favorite_book')))
