@@ -335,5 +335,15 @@ As I only need to complete Fuzzy Matching, can't I see how many address have a w
 don't we see if I can do that.
 '''
 
+import re
+addresses = [x['incident_address'] for x in crime]
+word = '[D]\w\w\w\w'
+results = []
+for x in addresses:
+    results.append(re.search(word, x))
+print(results[0:20])
 
-
+'''
+Well, DERAL wasn't what I was looking for, but the Fuzzy Matching found it and it does fall within the set requirements
+I set. I was hoping to find anything similar to 'Drive.' 'DERAL' starts with a 'D' and is 5 characters long, so it works.
+'''
