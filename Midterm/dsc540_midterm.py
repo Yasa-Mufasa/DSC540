@@ -301,9 +301,10 @@ For my dataset, I'm curious to see if I can find any matches within the incident
 Matching.
 
 For this section, I'm not able to compete it using Jupyter Notebook as it's not recognizing the needed packages. So I'll
-be completing it using PyCharm.
+be completing it using PyCharm. I'm going to start by practicing with the examples in the textbook on pages 180 - 181.
 '''
 
+'''
 from fuzzywuzzy import fuzz
 my_records = [{'favorite_book': 'Grapes of Wrath',
                'favorite_movie': 'Free Willie',
@@ -315,3 +316,24 @@ my_records = [{'favorite_book': 'Grapes of Wrath',
              }]
 print(fuzz.ratio(my_records[0].get('favorite_book'),
                 my_records[1].get('favorite_book')))
+print(fuzz.ratio(my_records[0].get('favorite_movie'),
+                  my_records[1].get('favorite_movie')))
+print(fuzz.ratio(my_records[0].get('favorite_show'),
+                 my_records[1].get('favorite_show')))
+
+print(fuzz.partial_ratio(my_records[0].get('favorite_book'),
+                my_records[1].get('favorite_book')))
+print(fuzz.partial_ratio(my_records[0].get('favorite_movie'),
+                  my_records[1].get('favorite_movie')))
+print(fuzz.partial_ratio(my_records[0].get('favorite_show'),
+                 my_records[1].get('favorite_show')))
+'''
+
+
+'''
+As I only need to complete Fuzzy Matching, can't I see how many address have a word similar to 'Drive' in them? Why
+don't we see if I can do that.
+'''
+
+
+
