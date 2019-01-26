@@ -144,6 +144,8 @@ And that finishes out Part I.
 '''
 
 
+
+
 '''
 Part II:
 Exploring Table Functions - (Data Wrangling with Python, Page 225 - 228)
@@ -283,10 +285,26 @@ ranked = table.compute([('Children not working (%)',
 ranked = ranked.compute([('Total Child Labor Rank',
                           agate.Rank('Children not working (%)')),
                          ])
-print('Part II - Question 5: Calculate the percentage of children not involved in child labor.')
-for row in ranked.order_by('Total (%)', reverse=True).limit(20).rows:
-    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+#print('Part II - Question 5: Calculate the percentage of children not involved in child labor.')
+#for row in ranked.order_by('Total (%)', reverse=False).limit(20).rows:
+#    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+#TODO: Remove comments before turning in.
 
+'''
+And here we see the ranked percentages of children not involved in child labor. They are:
+Trinidad and Tobago
+Romania
+Belarus
+Jordan
+Lebanon
+Tunisia
+Kazakhstan
+Ukraine
+Bhutan
+Jamaica
+
+And this concludes Part II.
+'''
 
 
 
