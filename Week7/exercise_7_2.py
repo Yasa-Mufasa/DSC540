@@ -136,23 +136,156 @@ table = agate.Table(cleaned_rows, titles, types)
 #TODO: Remove comment before turning in.
 
 '''
-Huh. That actually works. Sweet! And that finishes out Part I.
+Huh. That actually works. Sweet! I didn't know you would really use a function as part of the call of another function.
+It makes sense, I just hadn't thought of trying that yet. I've been writing everything into a single function, or have
+each function change a variable and the next function use the modified variable.
+
+And that finishes out Part I.
 '''
 
 
 '''
 Part II:
 Exploring Table Functions - (Data Wrangling with Python, Page 225 - 228)
-* Which countries have the highest rate of child labor?
-* Which countries have the most girls working?
-* What is the average percentage of child labor in cities?
-* Find a  row with more than 50% of rural child labor.
-* Rank the worst offenders in terms of child labor percentages by country.
-* Calculate the percentage of children not involved in child labor.
+1. Which countries have the highest rate of child labor?
+2. Which countries have the most girls working?
+3. What is the average percentage of child labor in cities?
+4. Find a  row with more than 50% of rural child labor.
+5. Rank the worst offenders in terms of child labor percentages by country.
+6. Calculate the percentage of children not involved in child labor.
 '''
 
+'''
+If we're looking for the highest rates, why not sort the rates and look at which is top of the list?
+'''
 
+table.column_names
+most_egregious = table.order_by('Total (%)', reverse=True).limit(10)
+#print('Part II - Question 1: Which countries have the highest rate of child labor?')
+#for r in most_egregious.rows:
+#    print(r)
+#TODO: Remove comments before turning in
 
+'''
+This function gives us which countries have the highest rates of child labor. In fact, it gives us the top 10. They are,
+in order from highest to lowest:
+Somalia
+Cameroon
+Zambia
+Burkina Faso
+Guinea-Bissau
+Ghana
+Nepal
+Peru
+Niger
+Central African Republic
+
+This answers the first question of Part II
+
+Moving onto question 2, we can do something similar to find which countries have the most girls working.
+'''
+
+most_females = table.order_by('Female', reverse=True).limit(10)
+#for r in most_females.rows:
+#    print('{}: {}%'.format(r['Countries and areas'], r['Female']))      # This adds in formatting to our answer
+#TODO: Remove comments before turing in
+
+'''
+The 10 countries with the most girls working are, from highest to lowest:
+Cabo Verde
+Chile
+Ecuador
+Somalia
+Cameroon
+Zambia
+Nepal
+Guinea-Bissau
+Peru
+Burkina Faso
+
+Except these have some None values. Let's rerun this to take the None values out
+'''
+
+female_data = table.where(lambda r: r['Female'] is not None)
+most_female = female_data.order_by('Female', reverse=True).limit(10)
+#print('Part II - Question 2: Which countries have the most girls working?')
+#for r in most_females.rows:
+#    print('{}: {}%'.format(r['Countries and areas'], r['Female']))
+#TODO: Remove comment before turning in.
+
+'''
+And here we see the list of the top 10 countries with the most girls working.
+
+Now to move onto Question 3. We need to find the average percentage of child labor in cities. This won't be done using a
+sort method.
+'''
+
+#print('Percentage of girls working in cities:')
+#print(round(table.aggregate(agate.Mean('Place of residence (%) Urban')),4))
+#TODO: Remove comment before turning in
+
+'''
+This still has some None values, so let's take care of them.
+'''
+
+has_por = table.where(lambda r: r['Place of residence (%) Urban'] is not None)
+#print('Part II - Question 3: What is the average percentage of child labor in cities?')
+#print(round(has_por.aggregate(agate.Mean('Place of residence (%) Urban')),4))
+#TODO: Remove comment before turning in
+
+'''
+We get the same answer of 10.412%, but without any of the warnings about missing values.
+
+Now time to move onto Question 4. Looks like agate has a find feature.
+'''
+
+first_match = has_por.find(lambda x: x['Rural'] > 50)
+#print('Part II - Question 4: Find a row with more than 50% of rural child labor:')
+#print(first_match['Countries and areas'])
+#TODO: Remove comment before turning in
+
+'''
+Looks like the first match of a row with more than 50% of rural child labor is Bolivia.
+
+Now let's look for the worst offenders.
+'''
+
+ranked = table.compute([('Total Child Labor Rank',
+                         agate.Rank('Total (%)', reverse=True)), ])
+#print('Part II - Question 4: Rank the worst offenders in terms of child labor percentages by country.')
+#for row in ranked.order_by('Total (%)', reverse=True).limit(20).rows:
+#    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+#TODO: Remove comment before turning in
+
+'''
+Looks like the worst offenders are:
+Somalia
+Caeroon
+Zambia
+Burkina Faso
+Guinea-Bissau
+Ghana
+Nepal
+Peru
+Niger
+Central African Republic
+
+Now to look for the percentage of children not involved with child labor. This is just the inverse of the percentages.
+But we can still calculate and rank them with the following:
+'''
+
+def reverse_percent(row):
+    return 100 - row['Total (%)']
+
+ranked = table.compute([('Children not working (%)',
+                         agate.Formula(number_type, reverse_percent)),
+                        ])
+ranked = ranked.compute([('Total Child Labor Rank',
+                          agate.Rank('Children not working (%)')),
+                         ])
+print('Part II - Question 5: Calculate the percentage of children not involved in child labor.')
+for row in ranked.order_by('Total (%)', reverse=True).limit(20).rows:
+    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
 
 
 
