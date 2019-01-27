@@ -21,16 +21,19 @@ import agate
 import pprint
 
 workbook = xlrd.open_workbook('data/unicef_oct_2014.xls')
-#print(workbook.nsheets)         # Prints the number of sheets in the Excel file
-#print(workbook.sheet_names())   # Prints the sheet names of the Excel file.
-#TODO: Remove comment before turning in.
+print(workbook.nsheets)         # Prints the number of sheets in the Excel file
+print(workbook.sheet_names())   # Prints the sheet names of the Excel file.
+
 
 sheet = workbook.sheets()[0]
-#print(sheet.nrows)
-#print(sheet.row_values(0))
-#for r in range(sheet.nrows):
-#    print(r, sheet.row(r))
-#TODO: Remove comment before turning in.
+print('Part I ---------------------------------------')
+print('----------------------------------------------')
+print('')
+print(sheet.nrows)
+print(sheet.row_values(0))
+for r in range(sheet.nrows):
+    print(r, sheet.row(r))
+
 
 '''
 So I know that I'm able to read the different rows of the Excel file and I know how Python is reading each line. Let's
@@ -40,9 +43,10 @@ take a look at just the headers.
 '''
 
 title_rows = zip(sheet.row_values(4), sheet.row_values(5))
-#print('Taking a look at the headers:')
-#pprint.pprint(title_rows)
-#TODO: remove comment before turning in
+print('')
+print('Taking a look at the headers:')
+pprint.pprint(title_rows)
+
 
 '''
 That doesn't quite get everything imported over correctly. Looks like whenever there is a merged cell in Excel, Python
@@ -51,8 +55,9 @@ to start exploring it.
 '''
 
 titles = [t[0] + ' ' + t[1] for t in title_rows]    # combines the first two rows into a single string
-#print(titles)
-#TODO: remove comment before turning in
+print('')
+print(titles)
+
 titles = [t.strip() for t in titles]        # Removes the leading and trailing spaces from the titles.
 
 '''
@@ -74,12 +79,13 @@ boolean_type = agate.Boolean()
 date_type = agate.Date()
 
 example_row = sheet.row(6)
-#print(example_row)
+print('')
+print(example_row)
 
-#print(example_row[0].ctype)
-#print(example_row[0].value)
-#print(ctype_text)
-#TODO: remove comments befor turning in
+print(example_row[0].ctype)
+print(example_row[0].value)
+print(ctype_text)
+
 
 types = []
 for v in example_row:
@@ -132,8 +138,9 @@ Now that we have our function, let's try it out to see how it works.
 '''
 
 table = agate.Table(cleaned_rows, titles, types)
-#print(table)
-#TODO: Remove comment before turning in.
+# print('')
+# print(table)
+
 
 '''
 Huh. That actually works. Sweet! I didn't know you would really use a function as part of the call of another function.
@@ -163,13 +170,16 @@ Exploring Table Functions - (Data Wrangling with Python, Page 225 - 228)
 '''
 If we're looking for the highest rates, why not sort the rates and look at which is top of the list?
 '''
-
+print('')
+print('Part II -----------------------')
+print('-------------------------------')
+print('')
 table.column_names
 most_egregious = table.order_by('Total (%)', reverse=True).limit(10)
-#print('Part II - Question 1: Which countries have the highest rate of child labor?')
+print('Part II - Question 1: Which countries have the highest rate of child labor?')
 #for r in most_egregious.rows:
 #    print(r)
-#TODO: Remove comments before turning in
+
 
 '''
 This function gives us which countries have the highest rates of child labor. In fact, it gives us the top 10. They are,
@@ -189,11 +199,11 @@ This answers the first question of Part II
 
 Moving onto question 2, we can do something similar to find which countries have the most girls working.
 '''
-
+print('')
 most_females = table.order_by('Female', reverse=True).limit(10)
-#for r in most_females.rows:
-#    print('{}: {}%'.format(r['Countries and areas'], r['Female']))      # This adds in formatting to our answer
-#TODO: Remove comments before turing in
+for r in most_females.rows:
+    print('{}: {}%'.format(r['Countries and areas'], r['Female']))      # This adds in formatting to our answer
+
 
 '''
 The 10 countries with the most girls working are, from highest to lowest:
@@ -210,13 +220,13 @@ Burkina Faso
 
 Except these have some None values. Let's rerun this to take the None values out
 '''
-
+print('')
 female_data = table.where(lambda r: r['Female'] is not None)
 most_female = female_data.order_by('Female', reverse=True).limit(10)
-#print('Part II - Question 2: Which countries have the most girls working?')
-#for r in most_females.rows:
-#    print('{}: {}%'.format(r['Countries and areas'], r['Female']))
-#TODO: Remove comment before turning in.
+print('Part II - Question 2: Which countries have the most girls working?')
+for r in most_females.rows:
+    print('{}: {}%'.format(r['Countries and areas'], r['Female']))
+
 
 '''
 And here we see the list of the top 10 countries with the most girls working.
@@ -224,19 +234,20 @@ And here we see the list of the top 10 countries with the most girls working.
 Now to move onto Question 3. We need to find the average percentage of child labor in cities. This won't be done using a
 sort method.
 '''
+print('')
+print('Percentage of girls working in cities:')
+print(round(table.aggregate(agate.Mean('Place of residence (%) Urban')),4))
 
-#print('Percentage of girls working in cities:')
-#print(round(table.aggregate(agate.Mean('Place of residence (%) Urban')),4))
-#TODO: Remove comment before turning in
 
 '''
 This still has some None values, so let's take care of them.
 '''
 
+print('')
 has_por = table.where(lambda r: r['Place of residence (%) Urban'] is not None)
-#print('Part II - Question 3: What is the average percentage of child labor in cities?')
-#print(round(has_por.aggregate(agate.Mean('Place of residence (%) Urban')),4))
-#TODO: Remove comment before turning in
+print('Part II - Question 3: What is the average percentage of child labor in cities?')
+print(round(has_por.aggregate(agate.Mean('Place of residence (%) Urban')),4))
+
 
 '''
 We get the same answer of 10.412%, but without any of the warnings about missing values.
@@ -244,10 +255,11 @@ We get the same answer of 10.412%, but without any of the warnings about missing
 Now time to move onto Question 4. Looks like agate has a find feature.
 '''
 
+print('')
 first_match = has_por.find(lambda x: x['Rural'] > 50)
-#print('Part II - Question 4: Find a row with more than 50% of rural child labor:')
-#print(first_match['Countries and areas'])
-#TODO: Remove comment before turning in
+print('Part II - Question 4: Find a row with more than 50% of rural child labor:')
+print(first_match['Countries and areas'])
+
 
 '''
 Looks like the first match of a row with more than 50% of rural child labor is Bolivia.
@@ -255,12 +267,13 @@ Looks like the first match of a row with more than 50% of rural child labor is B
 Now let's look for the worst offenders.
 '''
 
+print('')
 ranked = table.compute([('Total Child Labor Rank',
                          agate.Rank('Total (%)', reverse=True)), ])
-#print('Part II - Question 4: Rank the worst offenders in terms of child labor percentages by country.')
-#for row in ranked.order_by('Total (%)', reverse=True).limit(20).rows:
-#    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
-#TODO: Remove comment before turning in
+print('Part II - Question 4: Rank the worst offenders in terms of child labor percentages by country.')
+for row in ranked.order_by('Total (%)', reverse=True).limit(20).rows:
+    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+
 
 '''
 Looks like the worst offenders are:
@@ -288,10 +301,11 @@ ranked = table.compute([('Children not working (%)',
 ranked = ranked.compute([('Total Child Labor Rank',
                           agate.Rank('Children not working (%)')),
                          ])
-#print('Part II - Question 5: Calculate the percentage of children not involved in child labor.')
-#for row in ranked.order_by('Total (%)', reverse=False).limit(20).rows:
-#    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
-#TODO: Remove comments before turning in.
+print('')
+print('Part II - Question 5: Calculate the percentage of children not involved in child labor.')
+for row in ranked.order_by('Total (%)', reverse=False).limit(20).rows:
+    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+
 
 '''
 And here we see the ranked percentages of children not involved in child labor. They are:
@@ -326,7 +340,10 @@ Charting with matplotlib - (Data Wrangling with Python, page 255 - 258)
 Before jumping right into answering the question, I need to import the perceived corruption scores. I'm going to run
 through the code to import the data.
 '''
-
+print('')
+print('Part III -------------------------------------------')
+print('----------------------------------------------------')
+print('')
 cpi_workbook = xlrd.open_workbook('data/corruption_perception_index.xls')
 cpi_sheet = cpi_workbook.sheets()[0]
 
@@ -365,7 +382,7 @@ cpi_types = get_types(cpi_sheet.row(3))
 #cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
 
 cpi_titles[0] = cpi_titles[0] + ' Duplicate'
-cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
+# cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
 
 def float_to_str(x):
     try:
@@ -381,10 +398,10 @@ cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
 
 cpi_and_cl = cpi_table.join(ranked, 'Country / Territory',
                             'Countries and areas', inner=True)
-#print(cpi_and_cl.column_names)
-#for r in cpi_and_cl.order_by('CPI 2013 Score').limit(10).rows:
-#    print('{}: {} - {}%'.format(r['Country / Territory'],
-#                                r['CPI 2013 Score'], r['Total (%)']))
+print(cpi_and_cl.column_names)
+for r in cpi_and_cl.order_by('CPI 2013 Score').limit(10).rows:
+    print('{}: {} - {}%'.format(r['Country / Territory'],
+                                r['CPI 2013 Score'], r['Total (%)']))
 # Well, this is working. That's good to see. The join worked.
 
 '''
@@ -394,13 +411,13 @@ the countries listed in my variable rather than isolating out just the African c
 
 import matplotlib.pyplot as plt
 
-#plt.plot(cpi_and_cl.columns['CPI 2013 Score'],
-#         cpi_and_cl.columns['Total (%)'])
-#plt.xlabel('CPI Score - 2013')
-#plt.ylabel('Child Labor Percentage')
-#plt.title('Chart 1: CPI & Child Labor Correlation')
-#plt.show()
-#TODO: Remove comment before turning in
+plt.plot(cpi_and_cl.columns['CPI 2013 Score'],
+         cpi_and_cl.columns['Total (%)'])
+plt.xlabel('CPI Score - 2013')
+plt.ylabel('Child Labor Percentage')
+plt.title('Chart 1: CPI & Child Labor Correlation')
+plt.show()
+
 
 '''
 And that's the chart for the first requested chart.
@@ -410,19 +427,19 @@ To select the top offenders, I can rank 'CPI 2013 Score' and then plot it agains
 '''
 
 worst_offenders = cpi_and_cl.order_by('CPI 2013 Score', reverse=True).limit(20)
-#for r in worst_offenders.rows:
-#    print('{} {} {}%'.format(r['Country / Territory'],
-#                             r['CPI 2013 Score'],
-#                             r['Total (%)']))
+for r in worst_offenders.rows:
+    print('{} {} {}%'.format(r['Country / Territory'],
+                             r['CPI 2013 Score'],
+                             r['Total (%)']))
 # Ok, I have the 20 worst offenders in one place. Now I can make the plot.
 
-#plt.plot(worst_offenders.columns['CPI 2013 Score'],
-#         worst_offenders.columns['Total (%)'])
-#plt.xlabel('CPI Score - 2013')
-#plt.ylabel('Child Labor Percentage')
-#plt.title("Chart 2: Worst Offender's CPI & Child Labor Correlation")
-#plt.show()
-#TODO: Remove comment before turning in
+plt.plot(worst_offenders.columns['CPI 2013 Score'],
+         worst_offenders.columns['Total (%)'])
+plt.xlabel('CPI Score - 2013')
+plt.ylabel('Child Labor Percentage')
+plt.title("Chart 2: Worst Offender's CPI & Child Labor Correlation")
+plt.show()
+
 '''
 Alright, and here is the chart for the worst offenders using all of the data.
 
@@ -430,7 +447,16 @@ For more practice, I'm going to isolate out just the records for the countries i
 First, I need to get the continent data into my table
 '''
 
-
+import json
+country_json = json.loads(open('data/earth.json', 'r').read())
+country_dict = {}
+for dct in country_json:
+    country_dict[dct['name']] = dct['parent']
+def get_country(country_row):
+    return country_dict.get(country_row['Country / Territory'].lower())
+cpi_and_cl = cpi_and_cl.compute([('continent',
+                                  agate.Formula(text_type, get_country)),
+                                 ])
 
 
 africa_cpi_cl = cpi_and_cl.where(lambda x: x['continent'] == 'africa')
@@ -438,3 +464,45 @@ for r in africa_cpi_cl.order_by('Total (%)', reverse=True).rows:
     print("{}: {}% - {}".format(r['Country / Territory'],
                                 r['Total (%)'],
                                 r['CPI 2013 Score']))
+
+
+import numpy as np
+print(np.corrcoef(
+    [float(t) for t in africa_cpi_cl.columns['Total (%)'].values()],
+    [float(c) for c in africa_cpi_cl.columns['CPI 2013 Score'].values()])[0,1])
+
+cl_mean = africa_cpi_cl.aggregate(agate.Mean('Total (%)'))
+cpi_mean = africa_cpi_cl.aggregate(agate.Mean('CPI 2013 Score'))
+
+def highest_rates(row):
+    if row['Total (%)'] > cl_mean and row['CPI 2013 Score'] < cpi_mean:
+        return True
+    return False
+
+highest_cpi_cl = africa_cpi_cl.where(lambda x: highest_rates(x))
+
+'''
+Alright, now I have just the countries in Africa. Now to make the two graphs again, but using just the countries in Africa
+'''
+
+plt.plot(africa_cpi_cl.columns['CPI 2013 Score'],
+         africa_cpi_cl.columns['Total (%)'])
+plt.xlabel('CPI Score - 2013')
+plt.ylabel('Child Labor Percentage')
+plt.title('Chart 1: CPI & Child Labor Correlation')
+plt.show()
+
+'''
+Alright, that's the first chart. Now for the second one.
+'''
+
+plt.plot(highest_cpi_cl.columns['CPI 2013 Score'],
+         highest_cpi_cl.columns['Total (%)'])
+plt.xlabel('CPI Score - 2013')
+plt.ylabel('Chile Labor Percentage')
+plt.title("Chart 2: Worst Offender's CPI & Child Labor Correlation")
+plt.show()
+
+'''
+And here is the second Chart using countries from Africa.
+'''
