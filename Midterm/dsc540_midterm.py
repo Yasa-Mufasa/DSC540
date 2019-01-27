@@ -50,8 +50,8 @@ Looks like it imported the data without any issues, as far as I can tell. Let's 
 the headers were imported.
 '''
 
-# print(len(rows[0]))
-# print(rows[0])        # TODO: Commenting out so I don't keep reprint this. Uncomment and rerun before turning in.
+print(len(rows[0]))
+print(rows[0])
 
 '''
 Alright, looks like all 19 variables were imported into 19 different columns and each column matches up with the title of
@@ -68,7 +68,7 @@ going to modify them so that they are all lowercase.
 headers = []
 for x in rows[0]:
     headers.append(x.lower())
-# print(headers)    #TODO: Remove comment before turning in.
+print(headers)
 
 '''
 Alright, that worked just fine. I have all of my headers in lowercase. And this answers the first part of the Midterm.
@@ -93,16 +93,16 @@ for row in rows:
     row[4] = x
     row[5] = y
     row[16] = z
-# print(rows[150])    # Checking one of the rows down the list for correction
-# TODO: Remove comment before turning in.
+print(rows[150])    # Checking one of the rows down the list for correction
+
 
 '''
 I've checked the 151st row to make sure that the function worked down the road. Let's also check the last row to ensure
 it is correct as well.
 '''
 
-# print(rows[-1])   # The last row looks fine, except that we need to change the last two columns.
-#TODO: Remove comment before turning in.
+print(rows[-1])   # The last row looks fine, except that we need to change the last two columns.
+
 
 '''
 After much fiddling, I can now fix the booleans to reflect True/ False with the following:
@@ -124,8 +124,8 @@ for row in rows[1:]:
         x = 'False'
         row[-1] = x
 
-# pprint.pprint(rows[0:5])
-#TODO: Remove comment before turning in.
+pprint.pprint(rows[0:5])
+
 
 '''
 Ok, that fixes those problems. But what about the dates? They are stings at the moment. Do I want to format them so they
@@ -152,9 +152,9 @@ them into a dataframe, or I could make an ordered dictionary and follow through 
 '''
 
 drows = rows[1:]
-# print('headers:', headers)
-# print('data:', drows[0:2])
-#TODO: Remove comment
+print('headers:', headers)
+print('data:', drows[0:2])
+
 
 '''
 Ok, I have my two lists with all of the formatted data. Now to try zipping them together into a dictionary record. I am
@@ -168,8 +168,8 @@ for i in range(1, len(rows[1:])+1):
     x = dict(zip(headers, rows[i]))
     crime.append(x)
 
-# print(crime[150])
-#TODO: remove comment
+print(crime[150])
+
 
 '''
 After a lot of playing around and trying different things, I was able to figure out the above thanks to advice I found on
@@ -205,9 +205,9 @@ def Missing(name):
             missing += 1
     print(name + ' # of NA: ' + str(na_count) + '\n  ' + name + ' # of missing values ' + str(missing))
 
-#for y in headers:
-#    Missing(y)
-#TODO: Remove comments
+for y in headers:
+    Missing(y)
+
 
 '''
 Looks like there are no NA values, but there are missing values, but there are blank, or missing, values. Looks like
@@ -227,11 +227,11 @@ which could be used to find how many crimes are the first crime, which as mentio
 Following the textbook, let's check what data type each value is. I'll look at crime[600] for this.
 '''
 
-#for name in headers:
-#    print(name, type(crime[0][name]))
+for name in headers:
+    print(name, type(crime[0][name]))
 
-#print(crime[600])
-#TODO: Remove comments
+print(crime[600])
+
 
 '''
 All of the variables are entered as strings. Normally, I would want numbers to be either integers or floats, but in this
@@ -252,11 +252,11 @@ check to see how many offense_id's are duplicates as well.
 import numpy as np
 test = [x['incident_id'] for x in crime]
 uniques = np.unique(test)
-#print('Length of full set:', len(test))
-#print("Length of unique id's:",len(uniques))
+print('Length of full set:', len(test))
+print("Length of unique id's:",len(uniques))
 x = len(test) - len(uniques)
-#print('Number of duplicates:', x)
-#TODO: Remove comments
+print('Number of duplicates:', x)
+
 
 '''
 This surprises me. I wasn't expecting any duplicates. Thinking about this, though, it could be that a single incident has
@@ -266,15 +266,15 @@ entries.
 
 import pandas as pd
 dups = pd.Series(test)[pd.Series(test).duplicated()].values
-#print(len('The Number of duplicates: ',dups))
-#TODO: Remove comment
+print(len('The Number of duplicates: ',dups))
+
 '''
 Alright, after many tries, much waiting, and searching for more efficient ways to find duplicates, I finally have a list
 of all of the duplicate incident_id's. Let's take a look at the first 10 duplicates.
 '''
 
-#print('The first ten duplicates: ',dups[0:10])
-#TODO: Remove comment
+print('The first ten duplicates: ',dups[0:10])
+
 
 '''
 Alright, we found which incident_ids are duplicates. It's a long list, so I don't want to print the entire thing out.
@@ -284,11 +284,11 @@ be lots of duplicates, but I'm curious what will show up.
 
 offense_codes = [x['offense_code'] for x in crime]
 off_dups = pd.Series(offense_codes)[pd.Series(offense_codes).duplicated()].values
-#print("Length of full set:", len(test))
-#print("Length of duplicates:", len(off_dups))
+print("Length of full set:", len(test))
+print("Length of duplicates:", len(off_dups))
 x = len(test) - len(off_dups)
-#print("Number of unique offense codes:", x)
-#TODO: Remove comments
+print("Number of unique offense codes:", x)
+
 
 
 '''
