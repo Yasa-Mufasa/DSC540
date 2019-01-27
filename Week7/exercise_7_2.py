@@ -143,7 +143,10 @@ each function change a variable and the next function use the modified variable.
 And that finishes out Part I.
 '''
 
-
+'''
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+'''
 
 
 '''
@@ -306,13 +309,132 @@ Jamaica
 And this concludes Part II.
 '''
 
-
+'''
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+'''
 
 
 '''
 Part III:
 Charting with matplotlib - (Data Wrangling with Python, page 255 - 258)
-* Chart the perceived corruption scores compared to the child labor percentages.
-* Chart the perceived corruption scores compared to the child labor percentages using only the worst offenders.
+1. Chart the perceived corruption scores compared to the child labor percentages.
+2. Chart the perceived corruption scores compared to the child labor percentages using only the worst offenders.
 '''
 
+'''
+Before jumping right into answering the question, I need to import the perceived corruption scores. I'm going to run
+through the code to import the data.
+'''
+
+cpi_workbook = xlrd.open_workbook('data/corruption_perception_index.xls')
+cpi_sheet = cpi_workbook.sheets()[0]
+
+#for r in range(cpi_sheet.nrows):
+#    print(r, cpi_sheet.row_values(r))
+# Ok, this is working.
+
+cpi_title_rows = zip(cpi_sheet.row_values(1), cpi_sheet.row_values(2))
+cpi_titles = [t[0] + ' ' + t[1] for t in cpi_title_rows]
+cpi_titles = [t.strip() for t in cpi_titles]
+
+def get_types(example_row):
+    types = []
+    for v in example_row:
+        value_type = ctype_text[v.ctype]
+        if value_type == 'text':
+            types.append(text_type)
+        elif value_type == 'number':
+            types.append(number_type)
+        elif value_type == 'xldate':
+            types.append(date_type)
+        else:
+            types.append(text_type)
+    return types
+
+def get_table(new_arr, types, titles):
+    try:
+        table = agate.Table(new_arr, titles, types)
+        return table
+    except Exception as e:
+        print(e)
+
+
+cpi_rows = [cpi_sheet.row_values(r) for r in range(3, cpi_sheet.nrows)]
+cpi_types = get_types(cpi_sheet.row(3))
+#cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
+
+cpi_titles[0] = cpi_titles[0] + ' Duplicate'
+cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
+
+def float_to_str(x):
+    try:
+        return str(x)
+        return x
+    except:
+        print('Could not convert float to str')
+
+cpi_rows = get_new_array(cpi_rows, float_to_str)
+cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
+
+# print(cpi_table)
+
+cpi_and_cl = cpi_table.join(ranked, 'Country / Territory',
+                            'Countries and areas', inner=True)
+#print(cpi_and_cl.column_names)
+#for r in cpi_and_cl.order_by('CPI 2013 Score').limit(10).rows:
+#    print('{}: {} - {}%'.format(r['Country / Territory'],
+#                                r['CPI 2013 Score'], r['Total (%)']))
+# Well, this is working. That's good to see. The join worked.
+
+'''
+Alright, now that I have the two tables joined together, I can start answering the questions in Part III. I have all of
+the countries listed in my variable rather than isolating out just the African countries.
+'''
+
+import matplotlib.pyplot as plt
+
+#plt.plot(cpi_and_cl.columns['CPI 2013 Score'],
+#         cpi_and_cl.columns['Total (%)'])
+#plt.xlabel('CPI Score - 2013')
+#plt.ylabel('Child Labor Percentage')
+#plt.title('Chart 1: CPI & Child Labor Correlation')
+#plt.show()
+#TODO: Remove comment before turning in
+
+'''
+And that's the chart for the first requested chart.
+
+Now I need to make the chart for the top offenders. But first, I need to select the top offenders.
+To select the top offenders, I can rank 'CPI 2013 Score' and then plot it against the 'Child Labor Percentage'.
+'''
+
+worst_offenders = cpi_and_cl.order_by('CPI 2013 Score', reverse=True).limit(20)
+#for r in worst_offenders.rows:
+#    print('{} {} {}%'.format(r['Country / Territory'],
+#                             r['CPI 2013 Score'],
+#                             r['Total (%)']))
+# Ok, I have the 20 worst offenders in one place. Now I can make the plot.
+
+#plt.plot(worst_offenders.columns['CPI 2013 Score'],
+#         worst_offenders.columns['Total (%)'])
+#plt.xlabel('CPI Score - 2013')
+#plt.ylabel('Child Labor Percentage')
+#plt.title("Chart 2: Worst Offender's CPI & Child Labor Correlation")
+#plt.show()
+#TODO: Remove comment before turning in
+'''
+Alright, and here is the chart for the worst offenders using all of the data.
+
+For more practice, I'm going to isolate out just the records for the countries in Africa.
+First, I need to get the continent data into my table
+'''
+
+
+
+
+africa_cpi_cl = cpi_and_cl.where(lambda x: x['continent'] == 'africa')
+for r in africa_cpi_cl.order_by('Total (%)', reverse=True).rows:
+    print("{}: {}% - {}".format(r['Country / Territory'],
+                                r['Total (%)'],
+                                r['CPI 2013 Score']))
