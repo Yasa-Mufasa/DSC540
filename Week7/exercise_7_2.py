@@ -19,6 +19,10 @@ The data used is from UNICEF's child labor summary data.
 import xlrd
 import agate
 import pprint
+from xlrd.sheet import ctype_text
+import matplotlib.pyplot as plt
+import json
+import numpy as np
 
 workbook = xlrd.open_workbook('data/unicef_oct_2014.xls')
 print(workbook.nsheets)         # Prints the number of sheets in the Excel file
@@ -65,13 +69,12 @@ From previous explorations, we know that we are interested in lines 6 - 114, and
 countries, not the continent totals.
 '''
 
-country_rows = [sheet.row_values(r) for r in range(6,114)]
+country_rows = [sheet.row_values(r) for r in range(6, 114)]
 
 '''
 Using agate, we need to figure out what our data types are, or define them beforehand. Let's start working through that
 '''
 
-from xlrd.sheet import ctype_text
 
 text_type = agate.Text()
 number_type = agate.Number()
@@ -110,12 +113,16 @@ before we can make the agate.Table().
 '''
 
 # This will remove the '-' characters
+
+
 def remove_bad_chars(val):
     if val == '-':
         return None     # replaces the '-' with None
     return val
 
+
 cleaned_rows = []       # making a new list to put the cleaned data into
+
 
 for row in country_rows:    # Cleaning our data by removing the '-'
     cleaned_row = [remove_bad_chars(rv) for rv in row]
@@ -126,12 +133,15 @@ for row in country_rows:    # Cleaning our data by removing the '-'
 Let's write a function over what we've done so far. It will take an array and what function you would like to use to
 clean the old array.
 '''
+
+
 def get_new_array(old_array, function_to_clean):
     new_arr = []
     for row in old_array:
         cleaned_row = [function_to_clean(rv) for rv in row]
         new_arr.append(cleaned_row)
     return new_arr
+
 
 '''
 Now that we have our function, let's try it out to see how it works.
@@ -177,7 +187,7 @@ print('')
 table.column_names
 most_egregious = table.order_by('Total (%)', reverse=True).limit(10)
 print('Part II - Question 1: Which countries have the highest rate of child labor?')
-#for r in most_egregious.rows:
+# for r in most_egregious.rows:
 #    print(r)
 
 
@@ -236,7 +246,7 @@ sort method.
 '''
 print('')
 print('Percentage of girls working in cities:')
-print(round(table.aggregate(agate.Mean('Place of residence (%) Urban')),4))
+print(round(table.aggregate(agate.Mean('Place of residence (%) Urban')), 4))
 
 
 '''
@@ -246,7 +256,7 @@ This still has some None values, so let's take care of them.
 print('')
 has_por = table.where(lambda r: r['Place of residence (%) Urban'] is not None)
 print('Part II - Question 3: What is the average percentage of child labor in cities?')
-print(round(has_por.aggregate(agate.Mean('Place of residence (%) Urban')),4))
+print(round(has_por.aggregate(agate.Mean('Place of residence (%) Urban')), 4))
 
 
 '''
@@ -272,7 +282,7 @@ ranked = table.compute([('Total Child Labor Rank',
                          agate.Rank('Total (%)', reverse=True)), ])
 print('Part II - Question 4: Rank the worst offenders in terms of child labor percentages by country.')
 for row in ranked.order_by('Total (%)', reverse=True).limit(20).rows:
-    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+    print(row['Countries and areas'], row['Total (%)'], row['Total Child Labor Rank'])
 
 
 '''
@@ -292,8 +302,10 @@ Now to look for the percentage of children not involved with child labor. This i
 But we can still calculate and rank them with the following:
 '''
 
+
 def reverse_percent(row):
     return 100 - row['Total (%)']
+
 
 ranked = table.compute([('Children not working (%)',
                          agate.Formula(number_type, reverse_percent)),
@@ -304,7 +316,7 @@ ranked = ranked.compute([('Total Child Labor Rank',
 print('')
 print('Part II - Question 5: Calculate the percentage of children not involved in child labor.')
 for row in ranked.order_by('Total (%)', reverse=False).limit(20).rows:
-    print(row['Countries and areas'],row['Total (%)'], row['Total Child Labor Rank'])
+    print(row['Countries and areas'], row['Total (%)'], row['Total Child Labor Rank'])
 
 
 '''
@@ -347,13 +359,14 @@ print('')
 cpi_workbook = xlrd.open_workbook('data/corruption_perception_index.xls')
 cpi_sheet = cpi_workbook.sheets()[0]
 
-#for r in range(cpi_sheet.nrows):
+# for r in range(cpi_sheet.nrows):
 #    print(r, cpi_sheet.row_values(r))
 # Ok, this is working.
 
 cpi_title_rows = zip(cpi_sheet.row_values(1), cpi_sheet.row_values(2))
 cpi_titles = [t[0] + ' ' + t[1] for t in cpi_title_rows]
 cpi_titles = [t.strip() for t in cpi_titles]
+
 
 def get_types(example_row):
     types = []
@@ -369,6 +382,7 @@ def get_types(example_row):
             types.append(text_type)
     return types
 
+
 def get_table(new_arr, types, titles):
     try:
         table = agate.Table(new_arr, titles, types)
@@ -379,17 +393,18 @@ def get_table(new_arr, types, titles):
 
 cpi_rows = [cpi_sheet.row_values(r) for r in range(3, cpi_sheet.nrows)]
 cpi_types = get_types(cpi_sheet.row(3))
-#cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
 
 cpi_titles[0] = cpi_titles[0] + ' Duplicate'
 # cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
 
+
 def float_to_str(x):
     try:
         return str(x)
-        return x
     except:
         print('Could not convert float to str')
+    return x
+
 
 cpi_rows = get_new_array(cpi_rows, float_to_str)
 cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
@@ -409,7 +424,6 @@ Alright, now that I have the two tables joined together, I can start answering t
 the countries listed in my variable rather than isolating out just the African countries.
 '''
 
-import matplotlib.pyplot as plt
 
 plt.plot(cpi_and_cl.columns['CPI 2013 Score'],
          cpi_and_cl.columns['Total (%)'])
@@ -447,13 +461,17 @@ For more practice, I'm going to isolate out just the records for the countries i
 First, I need to get the continent data into my table
 '''
 
-import json
+
 country_json = json.loads(open('data/earth.json', 'r').read())
 country_dict = {}
 for dct in country_json:
     country_dict[dct['name']] = dct['parent']
+
+
 def get_country(country_row):
     return country_dict.get(country_row['Country / Territory'].lower())
+
+
 cpi_and_cl = cpi_and_cl.compute([('continent',
                                   agate.Formula(text_type, get_country)),
                                  ])
@@ -466,18 +484,19 @@ for r in africa_cpi_cl.order_by('Total (%)', reverse=True).rows:
                                 r['CPI 2013 Score']))
 
 
-import numpy as np
 print(np.corrcoef(
     [float(t) for t in africa_cpi_cl.columns['Total (%)'].values()],
-    [float(c) for c in africa_cpi_cl.columns['CPI 2013 Score'].values()])[0,1])
+    [float(c) for c in africa_cpi_cl.columns['CPI 2013 Score'].values()])[0, 1])
 
 cl_mean = africa_cpi_cl.aggregate(agate.Mean('Total (%)'))
 cpi_mean = africa_cpi_cl.aggregate(agate.Mean('CPI 2013 Score'))
+
 
 def highest_rates(row):
     if row['Total (%)'] > cl_mean and row['CPI 2013 Score'] < cpi_mean:
         return True
     return False
+
 
 highest_cpi_cl = africa_cpi_cl.where(lambda x: highest_rates(x))
 
