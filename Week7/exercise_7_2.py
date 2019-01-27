@@ -184,7 +184,6 @@ print('')
 print('Part II -----------------------')
 print('-------------------------------')
 print('')
-table.column_names
 most_egregious = table.order_by('Total (%)', reverse=True).limit(10)
 print('Part II - Question 1: Which countries have the highest rate of child labor?')
 # for r in most_egregious.rows:
