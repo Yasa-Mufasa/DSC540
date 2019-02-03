@@ -22,8 +22,8 @@ import urllib2
 import requests
 from bs4 import BeautifulSoup
 from lxml import html
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 
 '''
 Alright, first thing first, I need to import the various packages I'll need for this assignment.
@@ -40,10 +40,9 @@ connect to Google?
 
 google = urllib2.urlopen('http://google.com')
 google = google.read()
-# print('Section 1:')
-# print('')
-# print(google[:200])     # prints the first 200 characters
-# TODO: Remove comment before turning in
+print('Section 1:')
+print('')
+print(google[:200])     # prints the first 200 characters
 
 url = 'http://google.com?q='
 url_with_query = url + urllib.quote_plus('python web scraping')
@@ -54,28 +53,26 @@ Huh, that's actually pretty cool. Would it work for any website? Let's try it on
 
 bell = urllib2.urlopen('http://www.bellevue.edu')
 bell = bell.read()
-# print('')
-# print("Bellevue's Web Page")
-# print(bell[:200])
-# TODO: Remove comment before turning in
+print('')
+print("Bellevue's Web Page")
+print(bell[:200])
 
 '''
 It really does work! But let's now move on with looking at some of the things you can do with the request library
 '''
 
 google = requests.get('http://google.com')
-# print('Status Codes:')
-# print(google.status_code)
-# print('')
-# print('First 200 Characters:')
-# print(google.content[:200])
-# print('')
-# print('Headers:')
-# print(google.headers)
-# print('')
-# print('Cookies:')
-# print(google.cookies.items())
-# TODO: Remove comments before turning in. Use Ctrl + / to mass comment/uncomment
+print('Status Codes:')
+print(google.status_code)
+print('')
+print('First 200 Characters:')
+print(google.content[:200])
+print('')
+print('Headers:')
+print(google.headers)
+print('')
+print('Cookies:')
+print(google.cookies.items())
 
 '''
 That's cool, and helps give more information than I was thinking it would. And this concludes the first part of the
@@ -89,15 +86,14 @@ of the data entries should be in its own dictionary with matching keys.
 
 page = requests.get('http://www.enoughproject.org/take_action')
 bs = BeautifulSoup(page.content, features="html.parser")
-# print('Title:')
-# print(bs.title)
-# print('')
-# print("All a's:")
-# print(bs.find_all('a'))
-# print('')
-# print("All p's:")
-# print(bs.find_all('p'))
-# TODO: Remove comments before turning in.
+print('Title:')
+print(bs.title)
+print('')
+print("All a's:")
+print(bs.find_all('a'))
+print('')
+print("All p's:")
+print(bs.find_all('p'))
 
 '''
 That's a lot but shows that you can grab what you need with the right requests.
@@ -126,13 +122,12 @@ Searching for "global" finds 1 location, and searching for "navigation" finds 6,
 page = requests.get('http://www.enoughproject.org/take_action')
 bs = BeautifulSoup(page.content, "lxml")
 ta_divs = bs.find_all("div")    # removed the "class_='views-row'" option. This caused it to work.
-# print(len(ta_divs))
-# for ta in ta_divs:
-#     title = ta.h2
-#     link = ta.a
-#     about = ta.find_all('p')
-#     print(title, link, about)
-# TODO: Remove the comment before turning in.
+print(len(ta_divs))
+for ta in ta_divs:
+    title = ta.h2
+    link = ta.a
+    about = ta.find_all('p')
+    print(title, link, about)
 
 '''
 Hmmmm, I'm getting that there are no ta_divs. Let's check the website to see how many there are.
@@ -175,19 +170,18 @@ Looks like I'm running into another issue. The parser isn't able to find the web
 if it would work using a different website? But which one? Why not Bellevue's webiste again?
 '''
 
-# page = html.parse('http://www.bellevue.edu')
-# root = page.getroot()
-# ta_divs = root.cssselect('div.views-row')
-# all_data = []
-# for ta in ta_divs:
-#     data_dict = {}
-#     title = ta.cssselect('h2')[0]
-#     data_dict['title'] = title.text_content()
-#     data_dict['link'] = title.find('a').get('href')
-#     data_dict['about'] = [p.text_content() for p in ta.cssselect('p')]
-#     all_data.append(data_dict)
-# print(all_data)
-# TODO: Remove comments before turning in.
+page = html.parse('http://www.bellevue.edu')
+root = page.getroot()
+ta_divs = root.cssselect('div.views-row')
+all_data = []
+for ta in ta_divs:
+    data_dict = {}
+    title = ta.cssselect('h2')[0]
+    data_dict['title'] = title.text_content()
+    data_dict['link'] = title.find('a').get('href')
+    data_dict['about'] = [p.text_content() for p in ta.cssselect('p')]
+    all_data.append(data_dict)
+print(all_data)
 
 '''
 Well, it sort of works. This produces an empty list of dictionaries, unfortunately. This could be because this script is
@@ -252,5 +246,81 @@ for elem in all_bubbles:
     all_data.append(elem_dict)
 
 print(all_data)
+browser.quit()
 
+
+'''
+Alright, this is giving me another blank list, which isn't surprising. I'm not looking at the same page and the page I'm
+looking at isn't set up the same. But let's go ahead and finish up this section when following the textbook.
+'''
+
+
+def find_text_element(html_element, element_css):
+    try:
+        return html_element.find_element_by_css_selector(element_css).text
+    except NoSuchElementException:
+        pass
+    return None
+
+
+def find_attr_element(html_element, element_css, attr):
+    try:
+        return html_element.find_element_by_css_selector(element_css).get_attribute(attr)
+    except NoSuchElementException:
+        pass
+    return None
+
+
+def get_browser():
+    browser = webdriver.Chrome()
+    return browser
+
+
+def main():
+    browser = get_browser()
+    browser.get('http://apps.twinesocial.com/fairphone')
+
+    all_data = []
+    browser.implicitly_wait(10)
+    try:
+        all_bubbles = browser.find_elements_by_css_selector('div.twine-item-border')
+    except WebDriverException:
+        browser.implicitly_wait(5)
+        all_bubbles = browser.find_elements_by_css_selector('div.twine-item-border')
+    for elem in all_bubbles:
+        elem_dict = {}
+        content = elem.find_element_by_css_selector('div.content')
+        elem_dict['full_name'] = find_text_element(content, 'div.fullname')
+        elem_dict['short_name'] = find_attr_element(content, 'div.name', 'innerHTML')
+        elem_dict['text_content'] = find_text_element(content, 'div.twine-description')
+        elem_dict['timestamp'] = find_attr_element(elem, 'div.when a abbr.timeago', 'title')
+        elem_dict['original_link'] = find_attr_element(elem, 'div.when a', 'src')
+        elem_dict['picture'] = find_attr_element(content, 'div.picture img', 'src')
+        all_data.append(elem_dict)
+    browser.quit()
+    return all_data
+
+
+if __name__ == '__main__':
+    all_data = main()
+    print(all_data)
+
+browser = webdriver.Chrome()
+browser.get('http://www.google.com')
+inputs = browser.find_elements_by_css_selector('from input')
+for i in inputs:
+    if i.is_displayed():
+        search_bar = i
+        break
+
+search_bar.send_keys('web scraping with python')
+search_button = browser.find_element_by_css_selector('form button')
+search_button.click()
+browser.implicitly_wait(10)
+results = browser.find_elements_by_css_selector('div h3 a')
+for r in results:
+    action = webdriver.ActionChains(browser)
+    action.move_to_element(r)
+    action.perform()
+    sleep(2)
 browser.quit()
