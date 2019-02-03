@@ -23,6 +23,7 @@ import requests
 from bs4 import BeautifulSoup
 from lxml import html
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 '''
 Alright, first thing first, I need to import the various packages I'll need for this assignment.
@@ -199,6 +200,57 @@ the end of the exercise, you should be able to go to a site, fill out a form, su
 the results with the code you wrote. Make sure to submit teh code and your output.
 '''
 
-browser = webdriver.Firefox()
+browser = webdriver.Chrome()
 browser.get('http://www.fairphone.com/we-are-fairphone/')
 browser.maximize_window()
+
+'''
+Looks like this website isn't available. I'm being redirected to https://www.fairphone.com/en/community/ instead. Let's
+see if it can still work, though.
+'''
+
+iframe = browser.find_element_by_xpath('//iframe')
+new_url = iframe.get_attribute('src')
+browser.get(new_url)
+
+all_data = []
+all_bubbles = browser.find_elements_by_css_selector('div.twine-item-border')
+
+for elem in all_bubbles:
+    elem_dict = {'full_name': None,
+                 'short_name': None,
+                 'text_content': None,
+                 'picture': None,
+                 'timestamp': None,
+                 'original_link': None,
+                 }
+    content = elem.find_element_by_css_selector('div.content')
+    try:
+        elem_dict['full_name'] = content.find_element_by_css_selector('div.fullname').text
+    except NoSuchElementException:
+        pass
+    try:
+        elem_dict['short_name'] = content.find_element_by_css_selector('div.name').text
+    except NoSuchElementException:
+        pass
+    try:
+        elem_dict['text_content'] = content.find_element_by_css_selector('div.twine-description').text
+    except NoSuchElementException:
+        pass
+    try:
+        elem_dict['timestamp'] = elem.find_element_by_css_selector('div.when').text
+    except NoSuchElementException:
+        pass
+    try:
+        elem_dict['original_link'] = elem.find_element_by_css_selector('div.when a').get_attribute('href')
+    except NoSuchElementException:
+        pass
+    try:
+        elem_dict['picture'] = elem.find_element_by_css_selector('div.picture img').get_attribute('src)')
+    except NoSuchElementException:
+        pass
+    all_data.append(elem_dict)
+
+print(all_data)
+
+browser.quit()
