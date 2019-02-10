@@ -122,6 +122,7 @@ def store_tweet(item):
             item_json[k] = str(v)
     table.insert(item_json)
 
+
 auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
 auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
 
@@ -129,7 +130,7 @@ api = tweepy.API(auth)
 query = '#childlabor'
 cursor = tweepy.Cursor(api.search, q=query, lang="en")
 
-for page in cursor.pages()
+for page in cursor.pages():
     for item in page:
         store_tweet(item)
 
@@ -156,6 +157,7 @@ class Listener(StreamListener):
     def on_data(selfself, data):
         print(data)
         return True
+
 
 auth = OAuthHandler(API_KEY, API_SECRET)
 auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
