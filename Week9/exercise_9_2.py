@@ -8,6 +8,8 @@ import oauth2
 import json
 import tweepy
 import dataset
+from tweepy.streaming import StreamListener
+from tweepy import OAuthHandler, Stream
 
 '''
 Complete the following using Python - make sure to show your work and show the values returned. YOu can submit via your
@@ -139,5 +141,28 @@ Alright, and that concludes this section.
 '''
 Part 4 - Do a data pull from Twitter's Streaming API (Data Wrangling with Python, pg 372 - 374)
 
-Everything up to now has been working with Twitter's REST API. Now let's take a look at Twitter's Streaming API.
+Everything up to now has been working with Twitter's REST API. Now let's take a look at Twitter's Streaming API. Let's
+also reset API_KEY, API_SECRET, TOKEN_KEY, and TOKEN_SECRET.
+'''
+
+API_KEY = ''
+API_SECRET = ''
+TOKEN_KEY = ''
+TOKEN_SECRET = ''
+
+
+class Listener(StreamListener):
+
+    def on_data(selfself, data):
+        print(data)
+        return True
+
+auth = OAuthHandler(API_KEY, API_SECRET)
+auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
+
+stream = Stream(auth, Listener())
+stream.filter(track=['child labor'])
+
+'''
+from here, you would add a way to save the tweets, similar to what we did in Part 3.
 '''
