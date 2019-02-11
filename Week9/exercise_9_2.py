@@ -27,11 +27,10 @@ as you have completed the exercise. Include your code and output for each step.
 '''
 Part 1 - Create a Twitter API Key and Access Token (Data Wrangling with Python, pg 365 - 366)
 
-The first step to working on this is that you need to have an account with Twitter. I don't want to use my personal
-Twitter account for this yet, so I'm creating an account at https://twitter.com/signup. This is taking more time than
-I was expecting it to. I didn't realize that the request needed to go through a verification process with Twitter now.
-I started this project on Saturday with it due tomorrow, so I may or may not gain access to Twitter's API in time. Once
-I have those values, I will put them here.
+The first step to working on this is that you need to have an account with Twitter. I ended up using my personal Twitter
+account for this assignment. (I'm surprised it was still active. I haven't touched it since 2014....) It took some time
+to get through signing up to use Twitter's API. For security purposes, I won't be including these values here. To check
+if this code works, please enter a valid API_KEY, API_SECRET, TOKEN_KEY and TOKEN_SECRET.
 '''
 
 API_KEY = ''
@@ -50,6 +49,7 @@ This is going to depend on which API_KEY, API_SECRET, TOKEN_KEY, and TOKEN_SECRE
 I can run the following to actually request information from Twitter.
 '''
 
+
 def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=None):
     consumer = oauth2.Consumer(key=API_KEY, secret=API_SECRET)
     token = oauth2.Token(key=key, secret=secret)
@@ -60,20 +60,14 @@ def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=No
 
 url = 'https://api.twitter.com/1.1/search/tweets.json?q=%23childlabor'
 data = oauth_req(url, TOKEN_KEY, TOKEN_SECRET)
-print(data)     # This prints out the obtained data to verify the program worked. It should return it as in JSON format
+print(data[:500])       # printing the first 500 characters to test it worked.
 
-'''
-This should display the data as a string. We could try to parse through the string, or we can use the json library to
-import the data as it's a .json file.
-'''
-data = json.loads(data)     # This reloads the data using the json library and rewrite the data variable.
-print(type(data))           # This should return a Python dictionary.
-
-with open('tweet_data.json', 'wb'):     # This will write the data to a file so I can parse through it later.
+with open("data/hashchildlabor.json", "w") as data_file:
     data_file.write(data)
 
 '''
 If I want to parse through this, Chapter 3 of Data Wrangling with Python has a great walk through of how to do so.
+Looking at the output, this would take some time, but it can be done.
 
 This also concludes Part 2 of the assignment.
 '''
@@ -91,11 +85,11 @@ API_SECRET = ''
 TOKEN_KEY = ''
 TOKEN_SECRET = ''
 
-# auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
-# auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
-# api = tweepy.API(auth)
-# query = '#childlabor'
-# cursor = tweepy.Cursor(api.search, q=query, lang="en")
+auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
+auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
+api = tweepy.API(auth)
+query = '#childlabor'
+cursor = tweepy.Cursor(api.search, q=query, lang="en")
 
 '''
 We now need a place to save the data. An easy way to do this is to create a directory called data in the same directory
@@ -104,13 +98,24 @@ as the script and run 'mkdir data' in the command line. Since I'm using PyCharm,
 Once the data directory is made, we can iterate over the different pages of Twitter data and save it.
 '''
 
-# for page in cursor.pages():
-#     tweets = []
-#     for item in page:
-#         tweets.append(item._json)
-#
-# with open('data/hashchildlabor.json', 'wb') as outfile:
-#     json.dump(tweets, outfile)
+for page in cursor.pages():
+    tweets = []
+    for item in page:
+        tweets.append(item._json)
+
+with open('data/hashchildlabor.json', 'wb') as outfile:
+    json.dump(tweets, outfile)
+
+'''
+This works, but only grabs data from the first page. Another thing that we can do is to build a function that will do
+this for us.
+'''
+
+
+API_KEY = ''
+API_SECRET = ''
+TOKEN_KEY = ''
+TOKEN_SECRET = ''
 
 
 def store_tweet(item):
@@ -127,6 +132,7 @@ auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
 auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
 
 api = tweepy.API(auth)
+
 query = '#childlabor'
 cursor = tweepy.Cursor(api.search, q=query, lang="en")
 
@@ -145,6 +151,7 @@ Part 4 - Do a data pull from Twitter's Streaming API (Data Wrangling with Python
 Everything up to now has been working with Twitter's REST API. Now let's take a look at Twitter's Streaming API. Let's
 also reset API_KEY, API_SECRET, TOKEN_KEY, and TOKEN_SECRET.
 '''
+
 
 API_KEY = ''
 API_SECRET = ''
@@ -165,6 +172,8 @@ auth.set_access_token(TOKEN_KEY, TOKEN_SECRET)
 stream = Stream(auth, Listener())
 stream.filter(track=['child labor'])
 
+
 '''
-from here, you would add a way to save the tweets, similar to what we did in Part 3.
+from here, you would add a way to save the tweets, similar to what we did in Part 3. I have to admit, this did take a
+little longer to run than I was expecting it to.
 '''
