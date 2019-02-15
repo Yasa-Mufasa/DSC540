@@ -38,6 +38,8 @@ from email.MIMEText import MIMEText
 from email import Encoders
 import os
 import ConfigParser
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
+from selenium import webdriver
 
 
 def start_logger():
@@ -48,31 +50,99 @@ def start_logger():
                         datefmt = '%m-%d %H:%M:%S')
 
 
+# def main():
+#     start_logger()
+#     logging.debug("SCRIPT: I'm starting to do things!")
+#
+#     try:
+#         20 / 0
+#     except Exception:
+#         logging.exception('SCRIPT: We had a problem!')
+#         logging.error('SCRIPT: Issue with division in the main() function')
+#
+#     logging.debug('SCRIPT: About to wrap things up')
+
+
+
+# if __name__ == '__main__':
+#     main()
+
+# Commenting out section so I don't rerun it each time.
+
+'''
+Alright, seems to be working. The above example creates the log where I want it to. Why not reuse some code from
+exercise_8_2.py? I will need to add the logging comments to each part.
+'''
+
+
+def find_text_element(html_element, element_css):
+    try:
+        return html_element.find_element_by_css_selector(element_css).text
+    except NoSuchElementException:
+        pass
+    return None
+
+
+def find_attr_element(html_element, element_css, attr):
+    try:
+        return html_element.find_element_by_css_selector(element_css).get_attribute(attr)
+    except NoSuchElementException:
+        pass
+    return None
+
+
+def get_browser():
+    browser = webdriver.Chrome()
+    return browser
+
+
 def main():
     start_logger()
-    logging.debug("SCRIPT: I'm starting to do things!")
+    logging.debug('SCRIPT: Getting browser')
+    browser = get_browser()
+    browser.get('http://apps.twinesocial.com/fairphone')
 
+    all_data = []
+    browser.implicitly_wait(10)
     try:
-        20 / 0
-    except Exception:
-        logging.exception('SCRIPT: We had a problem!')
-        logging.error('SCRIPT: Issue with division in the main() function')
-
-    logging.debug('SCRIPT: About to wrap things up')
+        all_bubbles = browser.find_elements_by_css_selector('div.twine-item-border')
+        logging.debug('SCRIPT: find_elements_by_css_selector for div.twine-item-border successful')
+    except WebDriverException:
+        browser.implicitly_wait(5)
+        logging.error('ERROR: initial find_elements_by_css_selector unsuccessful, trying again after waiting 5 seconds')
+        all_bubbles = browser.find_elements_by_css_selector('div.twine-item-border')
+    for elem in all_bubbles:
+        logging.debug('SCRIPT: Developing dictionary record')
+        elem_dict = {}
+        content = elem.find_element_by_css_selector('div.content')
+        logging.debug('SCRIPT: adding div.content')
+        elem_dict['full_name'] = find_text_element(content, 'div.fullname')
+        logging.debug('SCRIPT: adding div.fullname')
+        elem_dict['short_name'] = find_attr_element(content, 'div.name', 'innerHTML')
+        logging.debug('SCRIPT: adding div.name and innerHTML')
+        elem_dict['text_content'] = find_text_element(content, 'div.twine-description')
+        logging.debug('SCRIPT: adding div.twine-description')
+        elem_dict['timestamp'] = find_attr_element(elem, 'div.when a abbr.timeago', 'title')
+        logging.debug('SCRIPT: adding div.when a abbr.timeago and title')
+        elem_dict['original_link'] = find_attr_element(elem, 'div.when a', 'src')
+        logging.debug('SCRIPT: adding div.when a and src')
+        elem_dict['picture'] = find_attr_element(content, 'div.picture img', 'src')
+        logging.debug('SCRIPT: adding pictures and src')
+        all_data.append(elem_dict)
+        logging.debug('SCRIPT: adding all dictionary records to list')
+    browser.quit()
+    logging.debug('SCRIPT: Closing browser')
+    return all_data
 
 
 if __name__ == '__main__':
-    main()
+    all_data = main()
+    print(all_data)
+
 
 '''
-Alright, seems to be working. The above example creates the log where I want it to. Now to grab some previous code and
-add logging to it. I'm assuming I can use a snippet of code to add logging to.
+Sweet, it worked! I probably overly logged this code snippet as I'm logging that I've found each element.
 '''
-
-
-
-
-
 
 '''
 Part 2:
@@ -82,6 +152,7 @@ of this can be found on page 408 - 412 of your Data Wrangling with Python.
 
 Once again, I'll start with the book's example, and then modify some of my code from previous exercises.
 '''
+
 
 def get_config(env):
     config = ConfigParser.ConfigParser()
