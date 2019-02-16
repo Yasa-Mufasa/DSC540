@@ -1,0 +1,8 @@
+$(asctime)s SCRIPT: I'm starting to do things!
+$(asctime)s SCRIPT: We had a problem!
+Traceback (most recent call last):
+  File "exercise_10_2.py", line 56, in main
+    20 / 0
+ZeroDivisionError: integer division or modulo by zero
+$(asctime)s SCRIPT: Issue with division in the main() function
+$(asctime)s SCRIPT: About to wrap things up

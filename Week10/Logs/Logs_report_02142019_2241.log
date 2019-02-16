@@ -1,0 +1,940 @@
+$(asctime)s SCRIPT: Getting browser
+$(asctime)s POST http://127.0.0.1:51123/session {"capabilities": {"alwaysMatch": {"goog:chromeOptions": {"args": [], "extensions": []}, "browserName": "chrome", "platformName": "any"}, "firstMatch": [{}]}, "desiredCapabilities": {"goog:chromeOptions": {"args": [], "extensions": []}, "platform": "ANY", "browserName": "chrome", "version": ""}}
+$(asctime)s Starting new HTTP connection (1): 127.0.0.1:51123
+$(asctime)s http://127.0.0.1:51123 "POST /session HTTP/1.1" 200 998
+$(asctime)s Finished Request
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/url {"url": "http://apps.twinesocial.com/fairphone", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/url HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/timeouts/implicit_wait {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "ms": 10000.0}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/timeouts/implicit_wait HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/elements {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "value": "div.twine-item-border"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/elements HTTP/1.1" 200 780
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: find_elements_by_css_selector for div.twine-item-border successful
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-1/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-1", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-1/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-21", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-22/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-22"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-22/text HTTP/1.1" 200 96
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-21", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element HTTP/1.1" 200 343
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-21", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-1/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-1", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-1/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-23/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-23"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-23/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-1/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-1", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-1/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-24/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-24"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-24/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-21", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-21/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-25/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-25"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-25/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-2/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-2", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-2/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-26", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-27/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-27"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-27/text HTTP/1.1" 200 89
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-26", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-28/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-28"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-28/attribute/innerHTML HTTP/1.1" 200 90
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-26", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-2/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-2", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-2/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-29/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-29"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-29/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-2/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-2", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-2/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-30/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-30"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-30/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-26", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-26/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-31/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-31"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-31/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-3/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-3", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-3/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-32", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-33/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-33"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-33/text HTTP/1.1" 200 89
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-32", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-34/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-34"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-34/attribute/innerHTML HTTP/1.1" 200 90
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-32", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-3/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-3", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-3/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-35/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-35"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-35/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-3/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-3", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-3/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-36/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-36"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-36/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-32", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-32/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-37/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-37"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-37/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-4/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-4", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-4/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-38", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-39/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-39"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-39/text HTTP/1.1" 200 83
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-38", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element HTTP/1.1" 200 343
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-38", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-4/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-4", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-4/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-40/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-40"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-40/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-4/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-4", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-4/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-41/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-41"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-41/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-38", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-38/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-42/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-42"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-42/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-5/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-5", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-5/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-43", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-44/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-44"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-44/text HTTP/1.1" 200 83
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-43", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-45/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-45"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-45/attribute/innerHTML HTTP/1.1" 200 78
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-43", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-5/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-5", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-5/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-46/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-46"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-46/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-5/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-5", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-5/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-47/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-47"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-47/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-43", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-43/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-48/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-48"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-48/attribute/src HTTP/1.1" 200 132
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-6/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-6", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-6/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-49", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-50/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-50"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-50/text HTTP/1.1" 200 79
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-49", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element HTTP/1.1" 200 343
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-49", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-51/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-51"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-51/text HTTP/1.1" 200 345
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-6/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-6", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-6/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-52/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-52"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-52/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-6/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-6", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-6/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-53/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-53"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-53/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-49", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-49/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-54/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-54"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-54/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-7/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-7", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-7/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-55", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-56/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-56"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-56/text HTTP/1.1" 200 89
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-55", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-57/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-57"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-57/attribute/innerHTML HTTP/1.1" 200 90
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-55", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-7/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-7", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-7/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-58/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-58"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-58/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-7/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-7", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-7/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-59/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-59"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-59/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-55", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-55/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-60/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-60"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-60/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-8/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-8", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-8/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-61", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-62/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-62"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-62/text HTTP/1.1" 200 83
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-61", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-63/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-63"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-63/attribute/innerHTML HTTP/1.1" 200 84
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-61", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-8/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-8", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-8/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-64/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-64"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-64/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-8/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-8", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-8/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-65/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-65"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-65/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-61", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-61/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-66/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-66"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-66/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-9/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-9", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-9/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-67", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-68/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-68"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-68/text HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-67", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-69/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-69"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-69/attribute/innerHTML HTTP/1.1" 200 86
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-67", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-9/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-9", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-9/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-70/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-70"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-70/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-9/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-9", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-9/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-71/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-71"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-71/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-67", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-67/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-72/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-72"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-72/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-10/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-10", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-10/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-73", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-74/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-74"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-74/text HTTP/1.1" 200 81
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-73", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-75/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-75"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-75/attribute/innerHTML HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-73", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-10/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-10", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-10/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-76/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-76"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-76/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-10/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-10", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-10/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-77/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-77"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-77/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-73", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-73/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-78/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-78"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-78/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-11/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-11", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-11/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-79", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-80/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-80"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-80/text HTTP/1.1" 200 81
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-79", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-81/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-81"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-81/attribute/innerHTML HTTP/1.1" 200 81
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-79", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element HTTP/1.1" 200 356
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-11/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-11", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-11/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-82/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-82"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-82/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-11/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-11", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-11/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-83/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-83"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-83/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-79", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-79/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-84/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-84"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-84/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-12/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-12", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-12/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-85", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-86/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-86"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-86/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-85", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-87/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-87"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-87/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-85", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-88/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-88"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-88/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-12/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-12", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-12/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-89/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-89"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-89/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-12/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-12", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-12/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-90/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-90"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-90/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-85", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-85/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-91/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-91"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-91/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-13/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-13", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-13/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-92", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-93/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-93"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-93/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-92", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-94/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-94"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-94/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-92", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-95/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-95"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-95/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-13/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-13", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-13/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-96/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-96"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-96/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-13/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-13", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-13/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-97/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-97"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-97/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-92", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-92/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-98/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-98"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-98/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-14/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-14", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-14/element HTTP/1.1" 200 103
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-99", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-100/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-100"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-100/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-99", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-101/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-101"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-101/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-99", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-102/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-102"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-102/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-14/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-14", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-14/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-103/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-103"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-103/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-14/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-14", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-14/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-104/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-104"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-104/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-99", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-99/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-105/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-105"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-105/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-15/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-15", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-15/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-106", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-107/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-107"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-107/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-106", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-108/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-108"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-108/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-106", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-109/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-109"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-109/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-15/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-15", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-15/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-110/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-110"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-110/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-15/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-15", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-15/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-111/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-111"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-111/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-106", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-106/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-112/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-112"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-112/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-16/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-16", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-16/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-113", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-114/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-114"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-114/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-113", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-115/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-115"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-115/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-113", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-116/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-116"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-116/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-16/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-16", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-16/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-117/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-117"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-117/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-16/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-16", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-16/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-118/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-118"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-118/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-113", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-113/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-119/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-119"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-119/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-17/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-17", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-17/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-120", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-121/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-121"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-121/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-120", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-122/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-122"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-122/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-120", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-123/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-123"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-123/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-17/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-17", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-17/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-124/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-124"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-124/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-17/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-17", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-17/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-125/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-125"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-125/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-120", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-120/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-126/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-126"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-126/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-18/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-18", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-18/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-127", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-128/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-128"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-128/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-127", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-129/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-129"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-129/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-127", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-130/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-130"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-130/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-18/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-18", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-18/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-131/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-131"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-131/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-18/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-18", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-18/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-132/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-132"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-132/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-127", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-127/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-133/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-133"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-133/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-19/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-19", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-19/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-134", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-135/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-135"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-135/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-134", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-136/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-136"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-136/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-134", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-137/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-137"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-137/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-19/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-19", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-19/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-138/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-138"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-138/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-19/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-19", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-19/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-139/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-139"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-139/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-134", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-134/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-140/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-140"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-140/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s SCRIPT: Developing dictionary record
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-20/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-20", "value": "div.content"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-20/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.content
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-141", "value": "div.fullname"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-142/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-142"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-142/text HTTP/1.1" 200 82
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.fullname
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-141", "value": "div.name"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-143/attribute/innerHTML {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "innerHTML", "id": "0.7214633860673125-143"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-143/attribute/innerHTML HTTP/1.1" 200 85
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.name and innerHTML
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-141", "value": "div.twine-description"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-144/text {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-144"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-144/text HTTP/1.1" 200 93
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.twine-description
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-20/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-20", "value": "div.when a abbr.timeago"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-20/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-145/attribute/title {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "title", "id": "0.7214633860673125-145"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-145/attribute/title HTTP/1.1" 200 94
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a abbr.timeago and title
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-20/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-20", "value": "div.when a"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-20/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-146/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-146"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-146/attribute/src HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding div.when a and src
+$(asctime)s POST http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element {"using": "css selector", "sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "id": "0.7214633860673125-141", "value": "div.picture img"}
+$(asctime)s http://127.0.0.1:51123 "POST /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-141/element HTTP/1.1" 200 104
+$(asctime)s Finished Request
+$(asctime)s GET http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-147/attribute/src {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c", "name": "src", "id": "0.7214633860673125-147"}
+$(asctime)s http://127.0.0.1:51123 "GET /session/25231f9fe7ed460036ca8129e39a3f6c/element/0.7214633860673125-147/attribute/src HTTP/1.1" 200 133
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: adding pictures and src
+$(asctime)s SCRIPT: adding all dictionary records to list
+$(asctime)s DELETE http://127.0.0.1:51123/session/25231f9fe7ed460036ca8129e39a3f6c {"sessionId": "25231f9fe7ed460036ca8129e39a3f6c"}
+$(asctime)s http://127.0.0.1:51123 "DELETE /session/25231f9fe7ed460036ca8129e39a3f6c HTTP/1.1" 200 72
+$(asctime)s Finished Request
+$(asctime)s SCRIPT: Closing browser
