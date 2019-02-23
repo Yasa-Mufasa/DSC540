@@ -4,6 +4,10 @@ Exercise 11.2: Data Wrangling Tools
 Joshua Gardner
 '''
 
+import xlrd
+import agate
+from xlrd.sheet import ctype_text
+
 '''
 Exercise 11.2:
 Complete the following using Python - make sure to show your work and show the values returned. You can submit via your
@@ -13,11 +17,6 @@ Going back to Chapter 9 (Data Wrangling with Python), let's practice joining num
 likely run into frequently. Following hte example in your text that starts on page 229 - 233 of Data Wrangling with
 Python, work through the example to bring two data sets together. Submit your code and output to the assignment link.
 '''
-
-import xlrd
-import agate
-from xlrd.sheet import ctype_text
-
 
 text_type = agate.Text()
 number_type = agate.Number()
@@ -82,9 +81,8 @@ def reverse_percent(row):
 cpi_workbook = xlrd.open_workbook('Data/corruption_perception_index.xls')
 cpi_sheet = cpi_workbook.sheets()[0]
 
-# for r in range(cpi_sheet.nrows):
-#     print(r, cpi_sheet.row_values(r))
-# TODO: Remove comment before turning in.
+for r in range(cpi_sheet.nrows):
+    print(r, cpi_sheet.row_values(r))
 
 
 cpi_title_rows = zip(cpi_sheet.row_values(1), cpi_sheet.row_values(2))
@@ -97,8 +95,7 @@ cpi_types = get_types(cpi_sheet.row(3))
 
 cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
 
-# print(cpi_titles)
-# Todo: Remove comment before turning in.
+print(cpi_titles)
 
 '''
 Looks like we have a duplicate in the titles. Looks like 'Country Rank' is listed twice. Either way, I need to fix the
@@ -108,10 +105,9 @@ titles so there are only 1. So let's go fix this.
 cpi_titles[0] = cpi_titles[0] + ' Duplicate'
 
 cpi_rows = get_new_array(cpi_rows, float_to_str)
-cpi_table = get_table(cpi_rows, cpi_types, cpi_titles) # We're remaking the cpi_table here with the updated titles.
+cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)  # We're remaking the cpi_table here with the updated titles.
 
-# print(cpi_table)
-# ToDo: Remove comment before turning in.
+print(cpi_table)
 
 '''
 Ok, so I have the first table to use in the join... But what about the other table? I need two to join...
@@ -125,7 +121,8 @@ title_rows = zip(sheet.row_values(4), sheet.row_values(5))
 titles = [t[0] + ' ' + t[1] for t in title_rows]
 titles = [t.strip() for t in titles]    # Getting the titles into the correct format
 
-country_rows = [sheet.row_values(r) for r in range(6, 114)] # Removes the title rows, just has the data
+
+country_rows = [sheet.row_values(r) for r in range(6, 114)]  # Removes the title rows, just has the data
 
 # Now I need the data types. I should be able to reuse the different types that were defined above.
 
