@@ -14,3 +14,98 @@ likely run into frequently. Following hte example in your text that starts on pa
 Python, work through the example to bring two data sets together. Submit your code and output to the assignment link.
 '''
 
+import xlrd
+import agate
+from xlrd.sheet import ctype_text
+
+
+text_type = agate.Text()
+number_type = agate.Number()
+boolean_type = agate.Boolean()
+date_type = agate.Date()
+
+
+def get_types(example_row):
+    types = []
+    for v in example_row:
+        value_type = ctype_text[v.ctype]
+        if value_type == 'text':
+            types.append(text_type)
+        elif value_type == 'number':
+            types.append(number_type)
+        elif value_type == 'xldate':
+            types.append(date_type)
+        else:
+            types.append(text_type)
+    return types
+
+
+def get_table(new_arr, types, titles):
+    try:
+        table = agate.Table(new_arr, titles, types)
+        return table
+    except Exception as e:
+        print(e)
+        '''
+        This will give us the error as it appears. Once we see how the code acts, we can go back in and update the
+        exception handling. 
+        '''
+
+
+def float_to_str(val):
+    if isinstance(val, float):
+        return str(val)
+    elif isinstance(val, (str, unicode)):
+        print('unicode is', val.encode('utf-8'))
+        return val.encode('ascii', errors='replace').strip()
+    return val
+
+
+def get_new_array(old_array, function_to_clean):
+    new_arr = []
+    for row in old_array:
+        cleaned_row = [function_to_clean(rv) for rv in row]
+        new_arr.append(cleaned_row)
+    return new_arr
+
+
+cpi_workbook = xlrd.open_workbook('Data/corruption_perception_index.xls')
+cpi_sheet = cpi_workbook.sheets()[0]
+
+# for r in range(cpi_sheet.nrows):
+#     print(r, cpi_sheet.row_values(r))
+# TODO: Remove comment before turning in.
+
+
+cpi_title_rows = zip(cpi_sheet.row_values(1), cpi_sheet.row_values(2))
+cpi_titles = [t[0] + ' ' + t[1] for t in cpi_title_rows]
+cpi_titles = [t.strip() for t in cpi_titles]
+
+cpi_rows = [cpi_sheet.row_values(r) for r in range(3, cpi_sheet.nrows)]
+
+cpi_types = get_types(cpi_sheet.row(3))
+
+cpi_table = get_table(cpi_rows, cpi_types, cpi_titles)
+
+# print(cpi_titles)
+# Todo: Remove comment before turning in.
+
+'''
+Looks like we have a duplicate in the titles. Looks like 'Country Rank' is listed twice. Either way, I need to fix the
+titles so there are only 1. So let's go fix this.
+'''
+
+cpi_titles[0] = cpi_titles[0] + ' Duplicate'
+
+cpi_rows = get_new_array(cpi_rows, float_to_str)
+cpi_table = get_table(cpi_rows, cpi_types, cpi_titles) # We're remaking the cpi_table here with the updated titles.
+
+# print(cpi_table)
+# ToDo: Remove comment before turning in.
+
+'''
+Ok, so I have the first table to use in the join... But what about the other table? I need two to join...
+Ah, I need the child labor table from earlier in chapter 9. Alright, let's go and get that data and get it formatted
+correctly. Then I can get do the join function.
+'''
+
