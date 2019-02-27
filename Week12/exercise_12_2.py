@@ -13,3 +13,9 @@ notebook or code editor, no need to export your work.
 with Python, starting on page 336 - 345. Make sure to submit any errors you had, your code and your .csv/.json/.xml file
 with the data generated.
 '''
+
+'''
+This code can be run to scrape www.emoji-cheat-sheet.com by changing the working directory in the command prompt to be
+'~/Week12/scrapyspider/' and then typing the following in the command prompt:
+scrapy crawl emo
+'''
