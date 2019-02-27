@@ -3,7 +3,7 @@ DSC 540 Data Preparation
 Exercise 12.2: Creating a Spider with Scrapy
 '''
 
-
+import scrapy
 
 '''
 Complete the following using Python - make sure to show your work and show the values returned. You can submit via your
