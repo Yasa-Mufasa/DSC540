@@ -1,6 +1,5 @@
 '''
 DSC 540
-Joshua Gardner
 
 Exercise 8.2:
 Complete the following using Python -- make sure to show your work and show the values returned. You can submit via your

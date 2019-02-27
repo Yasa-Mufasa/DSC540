@@ -1,7 +1,6 @@
 '''
 DSC 540 Data Preparation
 Exercise 11.2: Data Wrangling Tools
-Joshua Gardner
 '''
 
 import xlrd

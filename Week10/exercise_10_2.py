@@ -1,7 +1,6 @@
 '''
 DSC 540
 Exercise 10.2: Logging and Automation
-Joshua Gardner
 '''
 
 '''

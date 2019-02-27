@@ -1,7 +1,6 @@
 '''
 DCS 540
 Exercise 7.2: Importing, Exploring, and Charting Data
-Joshua Gardner
 '''
 
 '''

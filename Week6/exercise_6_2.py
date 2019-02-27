@@ -1,6 +1,5 @@
 '''
 Exercise 6.2
-Joshua Gardner
 '''
 
 '''

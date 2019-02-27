@@ -1,7 +1,6 @@
 '''
 DSC 540
 Exercise 9.2: Pulling Data from APIs
-Joshua Gardner
 '''
 
 import oauth2

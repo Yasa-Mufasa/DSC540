@@ -1,6 +1,5 @@
 '''
 DSC 540 Midterm
-Joshua Gardner
 '''
 
 '''
