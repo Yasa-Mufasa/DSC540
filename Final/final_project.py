@@ -5,6 +5,7 @@ Final Project
 
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 '''
 During the course, you will be working on a term project to either pull data from an API or scrape a web page. You will
@@ -33,5 +34,109 @@ will be scraping information from books.toscrape.com and quotes.toscrape.com, tw
 practice and learning. I will need to scrape both for this project as neither web page has enough variables alone.
 
 I will be using the BeautifulSoup package to do most of my web scraping.
+
+I will be starting with books.toscrape.com.
 '''
 
+page = requests.get('http://books.toscrape.com/')
+bs = BeautifulSoup(page.content, 'lxml')    # scrapes the web page
+
+image_containers = bs.find_all('div', class_='image_container')  # gets all of the image_containers
+
+link = []   # puts the image containers into a list so we can iterate over it.
+for image in image_containers:
+    link.append(image.a)
+
+strings = []    # formats the list contents as strings
+for a in link:
+    strings.append(str(a))
+
+stripped_strings = []   # splits the strings along the " so we can just grab the portion we want.
+for string in strings:
+    stripped_strings.append(string.split('"'))
+
+cat_placement = []  # Gets three of the variables I want into different lists so I can combine them
+title = []
+pic_name = []
+for i in range(20):
+    cat_placement.append(stripped_strings[i][1])
+    title.append(stripped_strings[i][3])
+    pic_name.append(stripped_strings[i][7])
+
+'''
+I have the first 3 variables for this assignment gathered. Now I need to grab a few more. I'll get the price and if the
+book is in stock or not.
+'''
+
+price_containers = bs.find_all('div', class_='product_price')
+
+prices = []  # Putting the items into an iterable list
+for price in price_containers:
+    prices.append(price.p)
+
+strings = []    # Formatting each item in the list as a string so we can pull out just the part we need
+for p in prices:
+    strings.append(str(p))
+
+stripped_strings = []   # Splitting the strings to make it easier to get what we need
+for string in strings:
+    stripped_strings.append(string.split('>'))
+
+book_price = []  # Just getting the portion of the split string that we need.
+for i in range(20):
+    book_price.append(stripped_strings[i][1])
+
+books = []  # Adding some additional format to get rid of the </p at the end of each string
+for i in book_price:
+    books.append(i.strip('</p'))
+
+'''
+I know have the prices. Now to look at the availability.
+'''
+
+availability = bs.find_all('p', class_='instock availability')
+
+first_step = []  # Getting the items into an iterable list as strings.
+for a in availability:
+    first_step.append(str(availability))
+
+avail = []  # Selecting only the portion we need by slicing the string
+for i in range(20):
+    avail.append(first_step[i][70:79])
+
+'''
+Now I have the availability of the books. Let's take a look at the ratings.
+'''
+
+ratings = bs.find_all('article', class_='product_pod')
+
+first_step = []  # Getting the items into an iterable list as strings and split by the " character
+for i in range(20):
+    first_step.append(str(ratings[i]).split('"'))
+
+book_ratings = []   # Selecting only the portion of the split strings that we need.
+for i in range(20):
+    book_ratings.append(first_step[i][13])
+
+'''
+Now that I have the book ratings, let's look to see if I can add them to the shopping cart.
+'''
+
+button = bs.find_all('div', class_='product_price')
+
+first_step = []  # Getting the split strings into an iterable list
+for i in range(20):
+    first_step.append(str(button[i]).split('>'))
+
+second_step = []    # Removing the unneeded portion of the string.
+for i in range(20):
+    second_step.append(first_step[i][9].strip('/button'))
+
+button_stat = []    # For whatever reason, I couldn't strip the last character in step 2 without removing the last needed character. Doing this to remove the last character.
+for i in range(20):
+    button_stat.append(second_step[i][:-1])
+
+d = {'title': title, 'category_placement': cat_placement, 'picture_name': pic_name, 'price': books,
+     'availability': avail, 'rating': book_ratings, 'button_status': button_stat}
+scraped_books = pd.DataFrame(d)  # Adding everything into the DataFrame.
+print(scraped_books)
