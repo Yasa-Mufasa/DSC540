@@ -249,3 +249,55 @@ for i in range(10):
 
 scraped_quotes['author'] = authors
 print(scraped_quotes)
+
+'''
+Now I need to complete two clean-up actions to complete this assignment. I'm going to change the rating variable to be
+integers and drop the Euro sign and change the price variable to be floats.
+'''
+
+step_one = scraped_books['rating']
+
+step_two = []
+for i in range(20):
+    step_two.append(step_one[i].split(' '))
+
+step_three = []
+for i in range(20):
+    step_three.append(step_two[i][1])
+
+step_four = []
+for i in range(20):
+    if step_three[i] == 'One':
+        step_four.append(int(1))
+    elif step_three[i] == 'Two':
+        step_four.append(int(2))
+    elif step_three[i] == 'Three':
+        step_four.append(int(3))
+    elif step_three[i] == 'Four':
+        step_four.append(int(4))
+    elif step_three[i] == 'Five':
+        step_four.append(int(5))
+
+scraped_books['rating'] = step_four
+
+'''
+This cleaned up the ratings and puts the ratings into integers. Now let's clean up the price.
+'''
+
+step_one = scraped_books['price']
+
+step_two = []
+for i in range(20):
+    step_two.append(step_one[i][2:])
+
+step_three = []
+for i in range(20):
+    step_three.append(float(step_two[i]))
+
+scraped_books['price'] = step_three
+
+'''
+And this cleans up the price variable.
+'''
+
+print(scraped_books)
