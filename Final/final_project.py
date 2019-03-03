@@ -140,3 +140,112 @@ d = {'title': title, 'category_placement': cat_placement, 'picture_name': pic_na
      'availability': avail, 'rating': book_ratings, 'button_status': button_stat}
 scraped_books = pd.DataFrame(d)  # Adding everything into the DataFrame.
 print(scraped_books)
+
+'''
+Now to get to the second scraping set. This set will be scraped from http://quotes.toscrape.com/
+I'm not going to notate what I'm doing, but the steps I'm following will be similar to the above example.
+'''
+
+page = requests.get('http://quotes.toscrape.com/')
+bs = BeautifulSoup(page.content, 'lxml')
+
+quote_containers = bs.find_all('div', class_='quote')
+
+item_type = []
+for i in range(10):
+    item_type.append(str(quote_containers[i])[42:72])
+
+# Getting a new quote_container
+quote_container = bs.find_all('span', class_='text')
+
+first_step = []
+for i in range(10):
+    first_step.append(str(quote_container[i]).split('"'))
+
+second_step = []
+for i in range(10):
+    second_step.append(first_step[i][4].strip('>"').strip('"</span>'))
+
+quote = []
+for i in range(10):
+    quote.append(second_step[i][1:-1])
+
+d = {'quote': quote, 'item_type': item_type}
+scraped_quotes = pd.DataFrame(d)
+
+tag_container = bs.find_all('div', class_='tags')
+
+first_step = []  # This is only selecting the first tagged item, which works for what I'm doing on this one.
+for tag in tag_container:
+    first_step.append(tag.a)
+
+second_step = []
+for i in first_step:
+    second_step.append(str(i).split('/'))
+
+first_tag = []
+for i in second_step:
+    first_tag.append(i[2])
+
+scraped_quotes['first_tag'] = first_tag
+
+'''
+Looking at how to grab the rest of the tags, I can reuse tag_container to pull the data.
+'''
+
+first_step = []
+for i in tag_container:
+    first_step.append(str(i).split('/'))
+
+second_tag = []
+for i in range(10):
+    try:
+        second_tag.append(first_step[i][9])
+    except:
+        second_tag.append('No Tag')
+
+scraped_quotes['second_tag'] = second_tag
+
+third_tag = []
+for i in range(10):
+    try:
+        third_tag.append(first_step[i][15])
+    except:
+        third_tag.append('No Tag')
+
+scraped_quotes['third_tag'] = third_tag
+
+fourth_tag = []
+for i in range(10):
+    try:
+        fourth_tag.append(first_step[i][21])
+    except:
+        fourth_tag.append('No Tag')
+
+scraped_quotes['fourth_tag'] = fourth_tag
+
+fifth_tag = []
+for i in range(10):
+    try:
+        fifth_tag.append(first_step[i][27])
+    except:
+        fifth_tag.append('No Tag')
+
+scraped_quotes['fifth_tag'] = fifth_tag
+
+'''
+Now to get the author of the quote.
+'''
+
+author_container = bs.find_all('small', class_='author')
+
+first_step = []
+for i in author_container:
+    first_step.append(str(i).split('>'))
+
+authors = []
+for i in range(10):
+    authors.append(first_step[i][1].strip('</small'))
+
+scraped_quotes['author'] = authors
+print(scraped_quotes)
