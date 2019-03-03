@@ -301,3 +301,10 @@ And this cleans up the price variable.
 '''
 
 print(scraped_books)
+
+'''
+The last thing I would like to do is save the scraped data into a file.
+'''
+
+scraped_books.to_csv('Data/scraped_book_data.csv', sep=',')
+scraped_quotes.to_csv('Data/scraped_quotes_data.csv', sep=',')
